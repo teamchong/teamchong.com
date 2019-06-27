@@ -1,8 +1,10 @@
 {
   "name": "teamstevencom",
   "version": "1.0.0",
-  "description": "",
+  "description": "teamsteven.com",
   "keywords": [],
+  "privacy": "Private",
+  "template": "create-react-app",
   "main": "src/index.tsx",
   "dependencies": {
     "react": "16.8.4",
