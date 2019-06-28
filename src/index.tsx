@@ -33,15 +33,6 @@ function App() {
         the intersection of technology and innovative solutions in meeting
         business needs.
       </p>
-      <p className="aboutme">
-        I am a self-starter who continuously strives to make the best use of
-        technology to create value for the business.
-      </p>
-      <p className="aboutme">
-        I enjoy new challenges that will keep me fired up to go to work every
-        morning. When given a choice, one should pursue a career that positively
-        impacts one's life and the people around them.
-      </p>
       <div className="social-links">
         <a
           href="https://facebook.com/chong1222"
