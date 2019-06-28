@@ -25,7 +25,7 @@ function App() {
       <blockquote className="blockquote">
         <h1 className="myname">Steven Chong</h1>
         <footer className="blockquote-footer">
-          Fintech | Salesforce | Asia Pacific | United Kingdom
+          Fintech | Salesforce | Hong Kong
         </footer>
       </blockquote>
       <p className="aboutme">
