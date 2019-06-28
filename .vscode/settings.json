@@ -1,0 +1,19 @@
+{
+   "editor.formatOnSave": true,
+   "editor.fontSize": 11,
+   "editor.fontFamily": "dm, Menlo, Monaco, 'Courier New', monospace",
+   "editor.tabSize": 3,
+   "workbench.editor.openSideBySideDirection": "down",
+   "svelte.plugin.typescript.diagnostics.enable": false,
+   "editor.renderWhitespace": "boundary",
+   "files.autoSave": "afterDelay",
+   "workbench.colorTheme": "Visual Studio Dark",
+   "breadcrumbs.enabled": true,
+   "workbench.sideBar.location": "right",
+   "files.autoSaveDelay": 2000,
+   "workbench.editor.enablePreviewFromQuickOpen": false,
+   "workbench.editor.enablePreview": false,
+   "workbench.enableExperiments": false,
+   "workbench.settings.enableNaturalLanguageSearch": false,
+   "telemetry.enableTelemetry": false
+}
