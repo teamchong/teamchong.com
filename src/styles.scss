@@ -57,13 +57,13 @@ html, body {
 }
 
 @keyframes bg-loop1 {
-  0% { opacity: 0.1 }
+  0% { opacity: 0.05 }
   50% { opacity: 0.2; }
-  100% { opacity: 0.1; }
+  100% { opacity: 0.05; }
 }
 
 @keyframes bg-loop2 {
-  0%   { background-position: -200px -200px; }
-  50% { background-position: 0px 0px; }
-  100% { background-position: -200px -200px; }
+  0%   { background-position: 100% 100%; }
+  50% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
