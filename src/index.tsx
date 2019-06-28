@@ -55,6 +55,25 @@ function App() {
         >
           <i className="fab fa-linkedin" />
         </a>
+        <a
+          href="https://wa.me/85290388912"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-whatsapp-square" />
+        </a>
+        <a href="skype:hk90388912?chat">
+          <i className="fab fa-skype" />
+        </a>
+        <a
+          href={`mailto:${encodeURIComponent(
+            "Steven Chong"
+          )}<steven@teamchong.com>?subject=${encodeURIComponent(
+            "[TeamChong.com] New Message"
+          )}`}
+        >
+          <i className="fas fa-envelope-square" />
+        </a>
       </div>
       <div style={BgStyle} />
     </div>
