@@ -33,6 +33,7 @@ function App() {
         the intersection of technology and innovative solutions in meeting
         business needs.
       </p>
+      <div className="line1" />
       <div className="social-links">
         <a
           href="https://facebook.com/chong1222"

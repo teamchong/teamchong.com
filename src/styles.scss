@@ -37,6 +37,17 @@ html, body {
   animation: social-links-loop1 2s infinite;
 }
 
+.line1 {
+  height: 1px;;
+  border-left: 90vw solid #007bff;
+  animation: line-loop1 2s 1;
+  margin-bottom: 5px;
+}
+
+@keyframes line-loop1 {
+  0% { border-left: 0 solid #007bff; }
+  100% { border-left: 80vw solid #007bff; }
+}
 
 @keyframes social-links-loop1 {
   0% { padding-left: 10px; padding-right: 10px; }
