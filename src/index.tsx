@@ -14,8 +14,9 @@ const BgStyle: React.CSSProperties = {
   backgroundColor: "#000",
   backgroundImage: `url(${bg})`,
   backgroundRepeat: "no-repeat",
-  opacity: 0.1,
   backgroundPosition: "100% 100%",
+  backgroundSize: "150vw auto",
+  opacity: 0.1,
   animation: "bg-loop1 5s infinite, bg-loop2 60s infinite"
 };
 
