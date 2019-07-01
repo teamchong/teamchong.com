@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
         // handle success
         callback(null, {
           statusCode: 200,
-          body: response
+          body: response.data
         });
       })
       .catch(function(error) {
