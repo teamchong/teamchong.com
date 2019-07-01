@@ -1,2 +1,22 @@
+# Settings in the [build] context are global and are applied to all contexts 
+# unless otherwise overridden by more specific contexts.  
 [build]
+   # Directory with the serverless Lambda functions to deploy to AWS.
    functions = "functions/"
+# Redirects and headers are GLOBAL for all builds – they do not get scoped to 
+# contexts no matter where you define them in the file.
+# For context-specific rules, use _headers or _redirects files, which are 
+# PER-DEPLOY.
+
+# A redirect rule with all the supported properties
+[[redirects]]
+  from = "https://teamchong.netlify.com/*"
+  to = "https://www.teamchong.com/:splat"
+
+  # The default HTTP status code is 301, but you can define a different one.
+  status = 301
+
+  # By default, redirects won't be applied if there's a file with the same 
+  # path as the one defined in the `from` property. Setting `force` to `true` 
+  # will make the redirect rule take precedence over any existing files.
+  force = true
