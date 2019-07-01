@@ -7,20 +7,7 @@ import "./styles.scss";
 import bg from "./images/hongkong.jpg";
 
 const BgStyle: React.CSSProperties = {
-  position: "fixed",
-  pointerEvents: "none",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: -1,
-  backgroundColor: "#000",
-  backgroundImage: `url(${bg})`,
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "100% 100%",
-  backgroundSize: "150vw auto",
-  opacity: 0.01,
-  animation: "bg-loop1 5s infinite, bg-loop2 60s infinite"
+  backgroundImage: `url(${bg})`
 };
 
 function App() {
@@ -81,7 +68,8 @@ function App() {
           <i className="fas fa-envelope-square" />
         </a>
       </div>
-      <div style={BgStyle} />
+      <div className="footer">&copy; 2019 Steven Chong</div>
+      <div className="bg" style={BgStyle} />
     </div>
   );
 }
