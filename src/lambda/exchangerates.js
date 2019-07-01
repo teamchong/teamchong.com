@@ -4,7 +4,7 @@ const { AlphaVantageApiKey } = process.env;
 
 exports.handler = async (event, context) => {
   try {
-    const { data } = axios.get(
+    const { data } = await axios.get(
       `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=GBP&to_currency=HKD&apikey=${AlphaVantageApiKey}`
     );
     return {
