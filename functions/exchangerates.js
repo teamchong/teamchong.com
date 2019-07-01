@@ -10,10 +10,17 @@ exports.handler = (event, context, callback) => {
       )
       .then(function(response) {
         // handle success
-        callback(null, {
-          statusCode: 200,
-          body: response.data
-        });
+        try {
+          callback(null, {
+            statusCode: 200,
+            body: response.data
+          });
+        } catch (ex) {
+          callback(null, {
+            statusCode: 500,
+            body: ex
+          });
+        }
       })
       .catch(function(error) {
         // handle error
