@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { render } from "react-dom";
 
 import axios from "axios";
@@ -10,7 +11,27 @@ const BgStyle: React.CSSProperties = {
   backgroundImage: `url(${bg})`
 };
 
+const useForceUpdate = () => useState()[1];
+
 function App() {
+  const forceUpdate = useForceUpdate();
+
+  useEffect(() => {
+    // Make a request
+    axios
+      .get("/.netlify/functions/test")
+      .then(function(response) {
+        // handle success
+        console.log(response);
+        forceUpdate(null);
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+        forceUpdate(null);
+      });
+  });
+
   return (
     <div className="App">
       <blockquote className="blockquote">
@@ -75,16 +96,5 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-render(<App />, rootElement);
-
-// Make a request for a user with a given ID
-axios
-  .get("/.netlify/functions/test")
-  .then(function(response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function(error) {
-    // handle error
-    console.log(error);
-  });
+const AppMemo = React.memo(App);
+render(<AppMemo />, rootElement);
