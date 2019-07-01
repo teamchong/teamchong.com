@@ -23,12 +23,12 @@ function App() {
       .then(function(response) {
         // handle success
         console.log(response);
-        forceUpdate(null);
+        forceUpdate(undefined);
       })
       .catch(function(error) {
         // handle error
         console.log(error);
-        forceUpdate(null);
+        forceUpdate(undefined);
       });
   });
 
