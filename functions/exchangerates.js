@@ -17,7 +17,10 @@ exports.handler = (event, context, callback) => {
       })
       .catch(function(error) {
         // handle error
-        console.log(error);
+        callback(null, {
+          statusCode: 500,
+          body: error
+        });
       })
   );
 };
