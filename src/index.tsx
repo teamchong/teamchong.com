@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     // Make a request
     axios
-      .get("/.netlify/functions/test")
+      .get("/.netlify/functions/exchangerates")
       .then(function(response) {
         // handle success
         console.log(response);
