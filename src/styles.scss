@@ -10,7 +10,6 @@ html, body {
   min-height: 100vh;
   padding: 1em;
   position: relative;
-  background: #fff;
   color: #000;
 }
 
@@ -57,9 +56,11 @@ html, body {
 }
 
 @keyframes bg-loop1 {
-  0% { opacity: 0.05 }
-  50% { opacity: 0.15; }
-  100% { opacity: 0.05; }
+  0% { opacity: 0.01 }
+  10% { opacity: 0.01; }
+  50% { opacity: 0.10; }
+  90% { opacity: 0.01; }
+  100% { opacity: 0.01; }
 }
 
 @keyframes bg-loop2 {

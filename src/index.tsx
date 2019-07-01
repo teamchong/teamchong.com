@@ -1,22 +1,25 @@
 import * as React from "react";
 import { render } from "react-dom";
 
+import ReactGlobe from "react-globe";
+
 import "./styles.scss";
 import bg from "./images/hongkong.jpg";
 
 const BgStyle: React.CSSProperties = {
-  position: "absolute",
+  position: "fixed",
   pointerEvents: "none",
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
+  zIndex: -1,
   backgroundColor: "#000",
   backgroundImage: `url(${bg})`,
   backgroundRepeat: "no-repeat",
   backgroundPosition: "100% 100%",
   backgroundSize: "150vw auto",
-  opacity: 0.1,
+  opacity: 0.01,
   animation: "bg-loop1 5s infinite, bg-loop2 60s infinite"
 };
 
@@ -26,9 +29,10 @@ function App() {
       <blockquote className="blockquote">
         <h1 className="myname">Steven Chong</h1>
         <footer className="blockquote-footer">
-          Fintech | Salesforce | Hong Kong
+          Developer | Fintech | Salesforce
         </footer>
       </blockquote>
+      <p className="aboutme">Proud father of my daughters.</p>
       <p className="aboutme">
         Experienced software development professional who is passionate about
         the intersection of technology and innovative solutions in meeting
