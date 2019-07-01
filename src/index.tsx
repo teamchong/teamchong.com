@@ -10,26 +10,27 @@ const BgStyle: React.CSSProperties = {
   backgroundImage: `url(${bg})`
 };
 
-const useForceUpdate = () => useState()[1];
+// const useForceUpdate = () => useState()[1];
 
 function App() {
-  const forceUpdate = useForceUpdate();
+  // const forceUpdate = useForceUpdate();
 
-  useEffect(() => {
-    // Make a request
-    axios
-      .get("/.netlify/functions/exchangerates")
-      .then(function(response) {
-        // handle success
-        console.log(response);
-        forceUpdate(undefined);
-      })
-      .catch(function(error) {
-        // handle error
-        console.log(error);
-        forceUpdate(undefined);
-      });
-  });
+  
+  // useEffect(() => {
+  //   // Make a request
+  //   axios
+  //     .get("/.netlify/functions/exchangerates")
+  //     .then(function(response) {
+  //       // handle success
+  //       console.log(response);
+  //       forceUpdate(undefined);
+  //     })
+  //     .catch(function(error) {
+  //       // handle error
+  //       console.log(error);
+  //       forceUpdate(undefined);
+  //     });
+  // });
 
   return (
     <div className="App">
