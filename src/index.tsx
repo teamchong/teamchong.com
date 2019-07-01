@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render } from "react-dom";
 
-import ReactGlobe from "react-globe";
+import axios from "axios";
 
 import "./styles.scss";
 import bg from "./images/hongkong.jpg";
@@ -76,3 +76,15 @@ function App() {
 
 const rootElement = document.getElementById("root");
 render(<App />, rootElement);
+
+// Make a request for a user with a given ID
+axios
+  .get("/.netlify/functions/test")
+  .then(function(response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function(error) {
+    // handle error
+    console.log(error);
+  });
