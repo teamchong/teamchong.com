@@ -15,7 +15,6 @@ const BgStyle: React.CSSProperties = {
 function App() {
   // const forceUpdate = useForceUpdate();
 
-  
   // useEffect(() => {
   //   // Make a request
   //   axios
@@ -41,11 +40,7 @@ function App() {
         </footer>
       </blockquote>
       <p className="aboutme">Proud father of my daughters.</p>
-      <p className="aboutme">
-        Experienced software development professional who is passionate about
-        the intersection of technology and innovative solutions in meeting
-        business needs.
-      </p>
+      <p className="aboutme">Experienced software development professional.</p>
       <div className="line1" />
       <div className="social-links">
         <a
