@@ -1,16 +1,13 @@
 BEGIN:VCARD
-VERSION:3.0
-FN;CHARSET=UTF-8:Steven Chong
-N;CHARSET=UTF-8:Chong;Steven
-ADR;WORK;PREF:;;;;;;Hong Kong
-URL;WORK:https://teamchong.com
-EMAIL;PREF;INTERNET:steven@teamchong.com
+VERSION:4.0
+FN:Steven Chong
+N:Chong;Steven
+BDAY:--1222
 GENDER:M
-TEL;TYPE=CELL:+852 90388912
-socialProfile;type=facebook:https://facebook.com/chong1222
-socialProfile;type=github:https://github.com/teamchong
-socialProfile;type=linkedin:https://linkedin.com/in/teamchong
-socialProfile;type=whatsapp:https://wa.me/85290388912
-socialProfile;type=skype:skype:hk90388912?chat
+ADR;PREF;home:;;;;;;Hong Kong
+TEL;PREF;TYPE=cell:+852-90388912
+EMAIL;PREF;TYPE=home:steven@teamchong.com
+IMPP;PREF:skype:skype:hk90388912?chat
+URL;PREF;TYPE=home:https://teamchong.com
 REV:2019-07-03T01:16:32.314Z
 END:VCARD
