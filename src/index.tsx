@@ -22,6 +22,10 @@ const useStyles = makeStyles(theme =>
       top: 0,
       right: 0,
       bottom: 0,
+      paddingTop: "100px",
+      paddingBottom: "100px",
+      paddingLeft: "50px",
+      paddingRight: "50px",
       overflow: "auto"
     },
     popover: {
@@ -33,11 +37,7 @@ const useStyles = makeStyles(theme =>
       backgroundColor: "transparent",
       boxShadow:
         "0px 1px 13px 0px rgba(0,0,0,0.2), 0px 1px 11px 0px rgba(0,0,0,0.14), 0px 2px 11px -1px rgba(0,0,0,0.12)",
-      borderRadius: "14px",
-      marginTop: "100px",
-      marginBottom: "100px",
-      marginLeft: "50px",
-      marginRight: "50px"
+      borderRadius: "14px"
     },
     addMe: {
       position: "absolute",
