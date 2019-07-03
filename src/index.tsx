@@ -17,12 +17,12 @@ const useStyles = makeStyles(theme =>
     root: {
       color: "#000",
       fontFamily: "Verdana, Geneva, sans-serif",
-      padding: "1em",
       position: "fixed",
       left: 0,
       top: 0,
       right: 0,
-      bottom: 0
+      bottom: 0,
+      overflow: "auto"
     },
     popover: {
       border: "1px solid #000",
@@ -35,7 +35,9 @@ const useStyles = makeStyles(theme =>
         "0px 1px 13px 0px rgba(0,0,0,0.2), 0px 1px 11px 0px rgba(0,0,0,0.14), 0px 2px 11px -1px rgba(0,0,0,0.12)",
       borderRadius: "14px",
       marginTop: "100px",
-      marginBottom: "100px"
+      marginBottom: "100px",
+      marginLeft: "50px",
+      marginRight: "50px"
     },
     addMe: {
       position: "absolute",
@@ -80,7 +82,7 @@ const useStyles = makeStyles(theme =>
       height: "200px"
     },
     addOil: {
-      position: "fixed",
+      position: "absolute",
       bottom: 0,
       left: 0,
       width: "100px",
@@ -92,7 +94,7 @@ const useStyles = makeStyles(theme =>
       "&:hover img": {
         animation: "$rotate-img 1s 1 forwards"
       },
-      zIndex: -1
+      zIndex: 1
     },
     footer: {
       position: "absolute",
