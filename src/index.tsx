@@ -22,11 +22,10 @@ const useStyles = makeStyles(theme =>
       top: 0,
       right: 0,
       bottom: 0,
-      paddingTop: "100px",
-      paddingBottom: "100px",
+      paddingTop: "50px",
+      paddingBottom: "50px",
       paddingLeft: "50px",
-      paddingRight: "50px",
-      overflow: "auto"
+      paddingRight: "50px"
     },
     popover: {
       border: "1px solid #000",
