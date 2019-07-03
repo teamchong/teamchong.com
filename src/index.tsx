@@ -78,20 +78,24 @@ const useStyles = makeStyles(theme =>
       fontSize: "0.5em"
     },
     socialLinks: {
-      fontSize: "2.5em",
-      color: "#007bff",
-      textDecoration: "none",
-      backgroundPosition: "bottom",
-      backgroundRepeat: "repeat-x",
-      backgroundSize: "50%",
-      borderBottom: 0,
-      paddingLeft: "8px",
-      paddingRight: "8px",
-      paddingBottom: "10px",
-      "&:hover": {
-        backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23009bff' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E")`,
+      display: "flex",
+      justifyContent: "space-around",
+      "& a": {
+        fontSize: "2.5em",
+        color: "#007bff",
         textDecoration: "none",
-        animation: "$social-links-loop1 10s infinite"
+        backgroundPosition: "bottom",
+        backgroundRepeat: "repeat-x",
+        backgroundSize: "50%",
+        borderBottom: 0,
+        paddingLeft: "8px",
+        paddingRight: "8px",
+        paddingBottom: "10px",
+        "&:hover": {
+          backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23009bff' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E")`,
+          textDecoration: "none",
+          animation: "$social-links-loop1 10s infinite"
+        }
       }
     },
     line1: {
@@ -146,7 +150,7 @@ function App() {
     >
       <Card className={clsx(classes.card, classes.mycard)}>
         <CardContent>
-          <Typography variant="h2" component="h2" className={classes.myname}>
+          <Typography variant="h3" component="h3" className={classes.myname}>
             Steven Chong
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
@@ -172,42 +176,38 @@ function App() {
           </Button>
         </CardActions>
         <CardContent>
-          <div className={classes.socialbar}>
-            <div className={classes.line1} />
+          <div className={classes.line1} />
+          <div className={classes.socialLinks}>
             <a
               href="https://facebook.com/chong1222"
               target="_blank"
               rel="noopener noreferrer"
-              className={classes.socialLinks}
             >
-              <i className={clsx(classes.icon, "fab fa-facebook-square")} />
+              <i className="fab fa-facebook-square" />
             </a>
             <a
               href="https://github.com/teamchong"
               target="_blank"
               rel="noopener noreferrer"
-              className={classes.socialLinks}
             >
-              <i className={clsx(classes.icon, "fab fa-github-square")} />
+              <i className="fab fa-github-square" />
             </a>
             <a
               href="https://linkedin.com/in/teamchong"
               target="_blank"
               rel="noopener noreferrer"
-              className={classes.socialLinks}
             >
-              <i className={clsx(classes.icon, "fab fa-linkedin")} />
+              <i className="fab fa-linkedin" />
             </a>
             <a
               href="https://wa.me/85290388912"
               target="_blank"
               rel="noopener noreferrer"
-              className={classes.socialLinks}
             >
-              <i className={clsx(classes.icon, "fab fa-whatsapp-square")} />
+              <i className="fab fa-whatsapp-square" />
             </a>
             <a href="skype:hk90388912?chat" className={classes.socialLinks}>
-              <i className={clsx(classes.icon, "fab fa-skype")} />
+              <i className="fab fa-skype" />
             </a>
             <a
               href={`mailto:${encodeURIComponent(
@@ -215,9 +215,8 @@ function App() {
               )}<steven@teamchong.com>?subject=${encodeURIComponent(
                 "[TeamChong.com] New Message"
               )}`}
-              className={classes.socialLinks}
             >
-              <i className={clsx(classes.icon, "fas fa-envelope-square")} />
+              <i className="fas fa-envelope-square" />
             </a>
           </div>
         </CardContent>
