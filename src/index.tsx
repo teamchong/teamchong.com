@@ -11,7 +11,6 @@ import Typography from "@material-ui/core/Typography";
 
 const bg = require("./images/hongkong.jpg");
 const addOil = require("./images/hkaddoil.png");
-const vCard = require("./StevenChong.vcf");
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
@@ -164,9 +163,7 @@ function App() {
         <CardActions>
           <Button
             fullWidth={true}
-            href={`data:text/x-vcard;charset=utf-8,${encodeURIComponent(
-              vCard
-            )}`}
+            href="StevenChong.vcf"
             download="StevenChong.vcf"
             className={classes.addme}
             variant="contained"
