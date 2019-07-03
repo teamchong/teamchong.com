@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Steven Chong
+N;CHARSET=UTF-8:Chong;Steven
+ADR;WORK;PREF:;;;;;;Hong Kong
+URL;WORK:https://teamchong.com
+EMAIL;PREF;INTERNET:steven@teamchong.com
+GENDER:M
+TEL;TYPE=CELL:+852 90388912
+socialProfile;type=facebook:https://facebook.com/chong1222
+socialProfile;type=github:https://github.com/teamchong
+socialProfile;type=linkedin:https://linkedin.com/in/teamchong
+socialProfile;type=whatsapp:https://wa.me/85290388912
+socialProfile;type=skype:skype:hk90388912?chat
+REV:2019-07-03T01:16:32.314Z
+END:VCARD
