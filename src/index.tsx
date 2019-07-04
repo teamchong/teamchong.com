@@ -30,7 +30,12 @@ const useStyles = makeStyles(theme =>
       paddingLeft: 50,
       paddingRight: 50
     },
+    aboutMe: {
+      margin: 0,
+      padding: "10px 0 0 10px"
+    },
     pos: {
+      fontFamily: `Tahoma", "Geneva", sans-serif`,
       fontSize: "0.9em"
     },
     popover: {
@@ -71,6 +76,7 @@ const useStyles = makeStyles(theme =>
       }
     },
     myName: {
+      fontFamily: `Tahoma", "Geneva", sans-serif`,
       textShadow: "2px 2px rgba(60, 60, 60, 0.2)"
     },
     bg: {
@@ -139,6 +145,11 @@ const useStyles = makeStyles(theme =>
         }
       }
     },
+    socialTitle: {
+      color: "#007bff",
+      fontFamily: `courier, "courier new", monospace`,
+      fontSize: "0.8em"
+    },
     line1: {
       height: 1,
       backgroundColor: "#007bff",
@@ -196,8 +207,10 @@ function AboutMe({ classes }: { classes: Record<string, string> }) {
       <Typography className={classes.pos} color="textSecondary">
         - Fintech | Salesforce | Hong Kong
       </Typography>
-      <p className="aboutme">Proud father of my daughters.</p>
-      <p className="aboutme">Experienced software development professional.</p>
+      <blockquote className={classes.aboutMe}>
+        <p>Proud father of my daughters.</p>
+        <p>Experienced software development professional.</p>
+      </blockquote>
     </CardContent>
   );
 }
@@ -205,6 +218,10 @@ function AboutMe({ classes }: { classes: Record<string, string> }) {
 function SocialBar({ classes }: { classes: Record<string, string> }) {
   return (
     <CardContent>
+      <div className={classes.socialTitle}>
+        <i className="fas fa-angle-double-down" style={{ fontSize: "0.6em" }} />{" "}
+        get in touch
+      </div>
       <div className={classes.line1} />
       <div className={classes.socialLinks}>
         <a
