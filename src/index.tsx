@@ -271,7 +271,7 @@ function AddMe({ classes }: { classes: Record<string, string> }) {
         type="button"
         onMouseEnter={handlePopoverOpen}
       >
-        <i className="fas fa-address-card" /> add contact
+        <i className="fas fa-address-card" /> add me
       </button>
       <Card
         className={clsx(classes.addMe, classes.card, open ? "hover" : "")}
