@@ -98,8 +98,8 @@ const useStyles = makeStyles(theme =>
     },
     addOil: {
       position: "absolute",
-      bottom: 0,
-      left: 0,
+      bottom: 5,
+      left: 5,
       width: 100,
       height: 100,
       display: "block",
@@ -236,7 +236,7 @@ function SocialBar({ classes }: { classes: Record<string, string> }) {
           <i className="fab fa-whatsapp-square" />
         </a>
         <a href="skype:hk90388912" className={classes.socialLinks}>
-          <i className="fab fa-skype" />
+          <i className="fab fa-skype" style={{ marginTop: "5px" }} />
         </a>
         <a
           href={`mailto:${encodeURIComponent(
