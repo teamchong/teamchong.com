@@ -233,7 +233,7 @@ function SocialBar({ classes }: { classes: Record<string, string> }) {
 }
 
 function AddMe({ classes }: { classes: Record<string, string> }) {
-  function handlePopoverOpen(event: React.MouseEvent<HTMLAnchorElement>) {
+  function handlePopoverOpen(event: React.MouseEvent<HTMLElement>) {
     setAnchorEl(event.currentTarget);
   }
 
@@ -241,7 +241,7 @@ function AddMe({ classes }: { classes: Record<string, string> }) {
     setAnchorEl(null);
   }
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement>(null);
   const open = Boolean(anchorEl);
 
   return (
