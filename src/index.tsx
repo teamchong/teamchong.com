@@ -294,7 +294,7 @@ function App() {
   }
 
   const classes = useStyles();
-  const [isAddOil, setIsAddOil] = React.useState(null);
+  const [isAddOil, setIsAddOil] = React.useState<Boolean | null>(null);
 
   return (
     <Box
