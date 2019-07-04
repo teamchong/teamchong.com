@@ -90,7 +90,7 @@ const useStyles = makeStyles(theme =>
     vCardQR: {
       width: 200,
       height: 200,
-      margin: "0 20px 0 20px"
+      margin: "0 20px 20px 20px"
     },
     addOil: {
       position: "absolute",
