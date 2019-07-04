@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme =>
       paddingLeft: 50,
       paddingRight: 50
     },
+    pos: {
+      fontSize: "0.9em"
+    },
     popover: {
       border: "1px solid #000",
       boxShadow:
@@ -39,7 +42,8 @@ const useStyles = makeStyles(theme =>
       backgroundColor: "transparent",
       boxShadow:
         "0px 1px 13px 0px rgba(0,0,0,0.2), 0px 1px 11px 0px rgba(0,0,0,0.14), 0px 2px 11px -1px rgba(0,0,0,0.12)",
-      borderRadius: 14
+      borderRadius: 14,
+      padding: "1em"
     },
     addMeButton: {
       cursor: "pointer",
