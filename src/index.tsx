@@ -241,7 +241,7 @@ function AddMe({ classes }: { classes: Record<string, string> }) {
     setAnchorEl(null);
   }
 
-  const [anchorEl, setAnchorEl] = React.useState<HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement?>(null);
   const open = Boolean(anchorEl);
 
   return (
