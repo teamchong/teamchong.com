@@ -210,13 +210,13 @@ function SocialBar({ classes }: { classes: Record<string, string> }) {
         >
           <i className="fab fa-facebook-square" />
         </a>
-        <a
+        {/* <a
           href="https://github.com/teamchong"
           target="_blank"
           rel="noopener noreferrer"
         >
           <i className="fab fa-github-square" />
-        </a>
+        </a> */}
         <a
           href="https://linkedin.com/in/teamchong"
           target="_blank"
