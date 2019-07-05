@@ -160,7 +160,7 @@ const useStyles = makeStyles(theme =>
     },
     "@keyframes rotate-img1": {
       "0%": {
-        transform: "none"
+        transform: "rotate(-10deg)"
       },
       "100%": {
         transform: "rotate(-90deg)"
@@ -171,7 +171,7 @@ const useStyles = makeStyles(theme =>
         transform: "rotate(-90deg)"
       },
       "100%": {
-        transform: "none"
+        transform: "rotate(-10deg)"
       }
     },
     "@keyframes line-loop1": {
