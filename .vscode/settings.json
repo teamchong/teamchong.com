@@ -13,7 +13,7 @@
    "files.autoSaveDelay": 2000,
    "workbench.editor.enablePreviewFromQuickOpen": false,
    "workbench.editor.enablePreview": false,
-   "workbench.enableExperiments": false,
+   "workbench.enableExperiments": true,
    "workbench.settings.enableNaturalLanguageSearch": false,
    "telemetry.enableTelemetry": false
 }
