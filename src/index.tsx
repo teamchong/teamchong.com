@@ -206,7 +206,7 @@ function AboutMe({ classes }: { classes: Record<string, string> }) {
         Steven Chong
       </Typography>
       <Typography className={classes.pos} color="textSecondary">
-        - Fintech | Salesforce | Hong Kong
+        - Developer @ Hong Kong
       </Typography>
       <blockquote className={classes.aboutMe}>
         <p>Proud father of my daughters.</p>
