@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 640 640" width="640" height="640">
+   <defs>
+      <path d="M323.1 612.45C320.68 614.68 316.95 614.68 314.53 612.45C297.06 594.81 157.29 453.71 139.82 436.07C139.82 436.07 55.24 349.28 78.46 232.34C78.46 232.31 78.46 232.08 78.46 232.05C79.3 225.37 106.12 25.86 316.19 25.55C316.25 25.55 316.69 25.55 316.74 25.55C324.2 24.71 506.09 9.36 561.64 230.4C561.64 230.4 591.21 350.12 483.42 457.85C451.35 488.77 355.17 581.53 323.1 612.45Z" id="a16dgtWPjF"></path>
+      <path d="M468.12 225.45C468.12 309.49 400.65 377.63 317.41 377.63C234.17 377.63 166.69 309.49 166.69 225.45C166.69 141.4 234.17 73.26 317.41 73.26C400.65 73.26 468.12 141.4 468.12 225.45Z" id="aSkHAXv5S"></path>
+      <text id="a1MwR7476N" x="230" y="185.44" font-size="140" font-family="Arial" font-weight="normal" font-style="normal" letter-spacing="0" alignment-baseline="before-edge" transform="matrix(1 0 -0 1 -58 -40)" style="line-height:100%" xml:space="preserve" dominant-baseline="text-before-edge">
+         <tspan x="240" dy="0em" alignment-baseline="before-edge" dominant-baseline="text-before-edge" text-anchor="start">TEC</tspan>
+      </text>
+   </defs>
+   <g>
+      <g>
+         <g>
+            <use xlink:href="#a16dgtWPjF" opacity="1" fill="#002E5D" fill-opacity="1"></use>
+            <g>
+               <use xlink:href="#a16dgtWPjF" opacity="1" fill-opacity="0" stroke="#002E5D" stroke-width="5" stroke-opacity="1"></use>
+               <use xlink:href="#a16dgtWPjF" opacity="1" fill-opacity="0" stroke="#ffffff" stroke-width="2" stroke-opacity="1"></use>
+            </g>
+         </g>
+         <g>
+            <g>
+               <filter id="shadow13562277" x="157.69" y="64.26" width="320.43" height="323.37" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse">
+                  <feFlood></feFlood>
+                  <feComposite in2="SourceAlpha" operator="in"></feComposite>
+                  <feGaussianBlur stdDeviation="1"></feGaussianBlur>
+                  <feOffset dx="1" dy="1" result="afterOffset"></feOffset>
+                  <feFlood flood-color="#000000" flood-opacity="0.5"></feFlood>
+                  <feComposite in2="afterOffset" operator="in"></feComposite>
+                  <feMorphology operator="dilate" radius="1"></feMorphology>
+                  <feComposite in2="SourceAlpha" operator="out"></feComposite>
+               </filter>
+               <path d="M468.12 225.45C468.12 309.49 400.65 377.63 317.41 377.63C234.17 377.63 166.69 309.49 166.69 225.45C166.69 141.4 234.17 73.26 317.41 73.26C400.65 73.26 468.12 141.4 468.12 225.45Z" id="b4UQr0gdxq" fill="white" fill-opacity="1" filter="url(#shadow13562277)"></path>
+            </g>
+            <use xlink:href="#aSkHAXv5S" opacity="1" fill="#002E5D" fill-opacity="0"></use>
+            <g>
+               <use xlink:href="#aSkHAXv5S" opacity="1" fill-opacity="0" stroke="#ffffff" stroke-width="5" stroke-opacity="1"></use>
+               <use xlink:href="#aSkHAXv5S" opacity="1" fill-opacity="0" stroke="#002E5D" stroke-width="2" stroke-opacity="1"></use>
+            </g>
+         </g>
+         <g id="a1olDk8Yax">
+            <use xlink:href="#a1MwR7476N" opacity="1" fill="#ffffff" fill-opacity="1"></use>
+         </g>
+      </g>
+   </g>
+</svg>

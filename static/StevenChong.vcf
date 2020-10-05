@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Steven Chong
+N:Chong;Steven
+BDAY;X-APPLE-OMIT-YEAR=1604:1604-12-22
+ADR;PREF;home:;;;;;;Hong Kong
+TEL;PREF;cell:+852-90388912
+EMAIL;PREF;home:steven@teamchong.com
+URL;PREF;home:https://teamchong.com
+URL;home:skype:hk90388912?chat
+URL;home:https://facebook.com/chong1222
+URL;home:https://linkedin.com/in/teamchong
+END:VCARD

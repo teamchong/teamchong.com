@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Steven Chong
+N;CHARSET=UTF-8:Chong;Steven;;;
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:steven_chong@executivecentre.com
+TEL;TYPE=CELL:+852 90388912
+ADR;CHARSET=UTF-8;TYPE=WORK:;;Level 3\, The Factory\, 1 Yip Fat Street\, Wong Chuk Hang;;;;Hong Kong
+TITLE;CHARSET=UTF-8:Software Development Manager
+ORG;CHARSET=UTF-8:The Executive Centre
+URL;type=WORK;CHARSET=UTF-8:https://www.executivecentre.com
+REV:2020-03-21T14:10:47.948Z
+END:VCARD

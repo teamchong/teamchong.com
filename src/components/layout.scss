@@ -1,0 +1,243 @@
+@import "./_variables.sass";
+// @import "~bulma/sass/utilities/_all.sass";
+// @import "~bulma/sass/base/_all.sass";
+// @import "~bulma/sass/elements/button.sass";
+// @import "~bulma/sass/elements/container.sass";
+// @import "~bulma/sass/elements/title.sass";
+// @import "~bulma/sass/form/_all.sass";
+// @import "~bulma/sass/components/navbar.sass";
+// @import "~bulma/sass/layout/hero.sass";
+// @import "~bulma/sass/layout/section.sass";
+@import "~react-bulma-components/src/index.sass";
+
+a.mapboxgl-ctrl-logo {
+   display: none !important;
+}
+div.mapboxgl-map {
+   width: 100vw;
+   height: 100vh;
+}
+
+.tag-building {
+   border-radius: 100% !important;
+   padding: 0.2rem 0.3rem !important;
+   font-size: 0.5rem !important;
+   margin-left: 0.2rem !important;
+}
+
+.label-building {
+   text-decoration: underline;
+   font-size: 0.6rem;
+   background: #fff;
+}
+
+.is-active .label-building {
+   font-weight: bold;
+}
+
+.breadcrumb {
+   background: transparent;
+   border-radius: 0.4rem;
+
+   .button {
+      background: transparent;
+      border: 0 none;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.8rem;
+
+      .icon {
+         margin: auto !important;
+         width: 1rem !important;
+         height: 1rem !important;
+         line-height: 1rem !important;
+         vertical-align: middle;
+
+         svg {
+            background: #fff;
+            border-radius: 100%;
+         }
+      }
+   }
+   .dropdown-menu {
+      .dropdown-content {
+         padding: 0.1rem 0.2rem;
+
+         .dropdown-item {
+            padding: 0.2rem 0.3rem;
+            font-size: 0.7rem;
+            display: flex;
+            justify-content: space-between;
+         }
+      }
+   }
+   .dropdown:not(.is-hoverable) {
+      .button > .icon {
+         display: none !important;
+      }
+      .dropdown-menu {
+         display: none !important;
+      }
+   }
+}
+
+.overflow-scroll-gradient {
+   position: relative;
+}
+
+.overflow-scroll-gradient::before {
+   content: "";
+   position: absolute;
+   top: 65px;
+   left: 0;
+   right: 0;
+   height: 1.5rem;
+   z-index: 1;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.001)); /* transparent keyword is broken in Safari */
+}
+.overflow-scroll-gradient::after {
+   content: "";
+   position: absolute;
+   bottom: 65px;
+   left: 0;
+   right: 0;
+   height: 1.5rem;
+   z-index: 1;
+   background: linear-gradient(rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.5)); /* transparent keyword is broken in Safari */
+}
+
+.social-links {
+   display: flex;
+   justify-content: space-around;
+   > a {
+      font-size: 2.5em;
+      color: #007bff;
+      text-decoration: none;
+      background-position: bottom;
+      background-repeat: repeat-x;
+      background-size: 50%;
+      border-bottom: 0;
+
+      &:hover {
+         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23009bff' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+         text-decoration: none;
+         animation: social-links-loop1 3s infinite;
+      }
+   }
+}
+
+@keyframes social-links-loop1 {
+   0% {
+      margin-left: 0;
+      margin-right: 0;
+   }
+   23% {
+      margin-left: -8px;
+      margin-right: 8px;
+   }
+   69% {
+      margin-left: 8px;
+      margin-right: -8px;
+   }
+   92% {
+      margin-left: 0;
+      margin-right: 0;
+   }
+}
+
+.add-me {
+   display: none;
+   border-radius: 4px;
+   &.hover {
+      display: inline-block;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+   }
+}
+
+.add-oil {
+   position: absolute;
+   bottom: 5px;
+   left: 5px;
+   width: 100px;
+   height: 100px;
+   display: block;
+   outline: none;
+   border: none;
+   animation: rotate-img2 1s 1 forwards;
+   &.hover {
+      animation: rotate-img1 1s 1 forwards;
+   }
+   z-index: 1;
+}
+
+@keyframes rotate-img1 {
+   0% {
+      transform: rotate(-8deg);
+   }
+   100% {
+      transform: rotate(-90deg);
+   }
+}
+@keyframes rotate-img2 {
+   0% {
+      transform: rotate(-90deg);
+   }
+   100% {
+      transform: rotate(-8deg);
+   }
+}
+
+.line1 {
+   height: 1px;
+   background-color: #007bff;
+   width: 100%;
+   animation: line-loop1 2s 1;
+   margin-bottom: 5px;
+}
+
+@keyframes line-loop1 {
+   0% { width: 0; }
+   100% { width: 100%; }
+}
+
+.card.my-card {
+   background-color: transparent;
+   box-shadow: 0px 1px 13px 0px rgba(0,0,0,0.2), 0px 1px 11px 0px rgba(0,0,0,0.14), 0px 2px 11px -1px rgba(0,0,0,0.12);
+   border-radius: 14px;
+   @include from($tablet) {
+      padding: 1em;
+   }
+}
+
+.bg {
+   animation: bg-loop1 5s infinite, bg-loop2 60s infinite;
+   bottom: 0;
+   background-color: #000;
+   background-image: url(/hongkong.jpg);
+   background-position: 100% 100%;
+   background-repeat: no-repeat;
+   left: 0;
+   opacity: 0.01;
+   pointer-events: none;
+   position: fixed;
+   right: 0;
+   top: 0;
+   z-index: -3;
+   @include from($fullhd) {
+      background-size: 150vw auto;
+   }
+}
+
+@keyframes bg-loop1 {
+   0% { opacity: 0.01; }
+   10% { opacity: 0.01; }
+   50% { opacity: 0.15; }
+   90% { opacity: 0.01; }
+   100% { opacity: 0.01; }
+}
+@keyframes bg-loop2 {
+   0% { background-position: 100% 100%; }
+   50% { background-position: 0% 0%; }
+   100% { background-position: 100% 100%; }
+}
