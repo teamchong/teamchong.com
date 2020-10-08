@@ -1,4 +1,4 @@
-import React, { useReducer, useRef } from "react"
+import React from "react"
 import { MapContext } from "../contexts/map-context"
 import { WinContext } from "../contexts/win-context"
 import { featurebarReducer, FeaturebarAction } from "../contexts/featurebar-context"
@@ -141,22 +141,24 @@ function getAction(action: `EXPAND` | `COLLAPSE`, renderedCentres: Array<GeoJSON
       return { type: action }
    }
 }
-const DELAY = 10000
 
 type FeaturebarProps = React.RefAttributes<HTMLDivElement> & React.HTMLAttributes<HTMLDivElement>
 
 const Featurebar: React.FC<FeaturebarProps> = ({}) => {
    const {
       state: { winHeight, winWidth },
+      dispatch: winDispatch,
    } = React.useContext(WinContext)
    const {
       state: { map, centreGeoJSONLookup, renderedCentres },
       dispatch: mapDispatch,
    } = React.useContext(MapContext)
    // console.log(renderedCentres)
-   const [{ collapsed, selected, highlighted }, featurebarDispatch] = React.useReducer(featurebarReducer, {
+   const [{ collapsed, selected, highlighted, next }, featurebarDispatch] = React.useReducer(featurebarReducer, {
       collapsed: true,
       selected: [],
+      next: 0,
+      nextTimeout: 0,
       highlighted: null,
    })
    const landscape = winWidth > winHeight
@@ -166,30 +168,18 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
       (collapsed ? renderedCentres : selected)?.reduce((rendered, { properties: { point_count } }) => {
          return rendered + (point_count ?? 1)
       }, 0) ?? 0
-   const highlightRef = useRef(null)
+   const highlightRef = React.useRef(null)
+   const highlightedCentre = centreGeoJSONLookup[highlighted]
 
    React.useEffect(() => {
-      map?.easeTo({ ...toggleOption.mapEaseTo, duration: DELAY / 2 })
+      map?.easeTo({ ...toggleOption.mapEaseTo, duration: 10000 / 2 })
    }, [map, collapsed, winWidth, winHeight])
    React.useEffect(() => {
       if (selected.length > 1) {
-         const idx = selected.findIndex(({ properties: { code } }) => code?.toLowerCase() == highlighted)
-         if (idx + 1 >= 0 && idx + 1 <= selected.length - 1) {
-            setTimeout(() => {
-               mapDispatch({ type: `RANDOM_VIDEO` })
-               featurebarDispatch({ type: `HIGHLIGHT`, payload: selected[idx + 1].properties.code.toLowerCase() })
-            }, DELAY)
-         } else {
-            setTimeout(() => {
-               mapDispatch({ type: `RANDOM_VIDEO` })
-               featurebarDispatch({ type: `HIGHLIGHT`, payload: selected[0].properties.code.toLowerCase() })
-            }, DELAY)
-         }
          highlightRef.current?.scrollIntoView({
             behavior: `smooth`,
             block: `center`,
          })
-         const highlightedCentre = centreGeoJSONLookup[highlighted]
          if (highlightedCentre) {
             map.flyTo({
                center: [highlightedCentre.bbox[0], highlightedCentre.bbox[1]],
@@ -199,8 +189,26 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
                maxDuration: 500,
             })
          }
+         autoPlayNext()
       }
-   }, [selected, highlighted, highlightRef.current])
+      if (highlighted) {
+         winDispatch({ type: `UPDATE_HASH`, payload: { h: highlighted } })
+      }
+   }, [selected, next, highlighted, highlightRef.current])
+
+   function handleAutoPlay() {
+      featurebarDispatch({ type: `AUTOPLAY` })
+   }
+
+   function autoPlayNext() {
+      const idx = selected.findIndex(({ properties: { code } }) => code?.toLowerCase() == highlighted)
+      const nextIdx = idx + 1 >= 0 && idx + 1 <= selected.length - 1 ? idx + 1 : 0
+      const timeout = next ? setTimeout(() => {
+         mapDispatch({ type: `RANDOM_VIDEO` })
+         featurebarDispatch({ type: `HIGHLIGHT`, payload: selected[nextIdx].properties.code.toLowerCase() })
+      }, next) as any : 0
+      featurebarDispatch({ type: `NEXT`, payload: timeout })
+   }
 
    return (
       <>
@@ -214,6 +222,7 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
                }}
             >
                <div style={{ ...toggleOption.featurebarContentStyle }}>
+                  {!next && <Button fullwidth onClick={handleAutoPlay} style={{ marginTop: `1rem` }}>Auto play</Button>}
                   {Object.values(
                      selected.reduce<{ [key: string]: GeoJSON.Feature<GeoJSON.Point, CentreGeoJsonProperties> }>((centres, feature) => {
                         if (feature.properties.code) {
@@ -259,11 +268,18 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
                            <Card.Content>
                               <Content>{feature.properties.address}</Content>
                            </Card.Content>
-                           {selected.length > 1 && <Card.Footer>
-                              <Card.Footer.Item renderAs="a" onClick={() => featurebarDispatch({ type: `SELECT`, payload: [feature] })}>
+                           <Card.Footer>
+                              {selected.length > 1 && 
+                              <Card.Footer.Item renderAs="a" onClick={() => featurebarDispatch({ type: `HIGHLIGHT`, payload: feature.properties?.code.toLowerCase() ?? null })}>
                                  Select
+                              </Card.Footer.Item>}
+                              <Card.Footer.Item renderAs="a" href={`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}`} target="_blank">
+                                 Street View
                               </Card.Footer.Item>
-                           </Card.Footer>}
+                              <Card.Footer.Item renderAs="a" href={`https://www.google.com/maps/dir/?api=1&origin=${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}&destination=${encodeURIComponent(feature.properties.city)}`} target="_blank">
+                                 Directions
+                              </Card.Footer.Item>
+                           </Card.Footer>
                         </Card>
                      )
                   })}

@@ -57,15 +57,15 @@ function getHash() {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
-   const data = useStaticQuery(graphql`
-      query SiteTitleQuery {
-         site {
-            siteMetadata {
-               title
-            }
-         }
-      }
-   `)
+   // const data = useStaticQuery(graphql`
+   //    query SiteTitleQuery {
+   //       site {
+   //          siodyMetadata {
+   //             title
+   //          }
+   //       }
+   //    }
+   // `)
    const [winState, winDispatch] = React.useReducer(winReducer, { winWidth: null, winHeight: null, hash: {} })
 
    React.useEffect(() => {
@@ -83,7 +83,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
    return (
       <WinContext.Provider value={{ state: winState, dispatch: winDispatch }}>
-         <main>{children}</main>
+         {children}
       </WinContext.Provider>
    )
 }

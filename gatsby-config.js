@@ -18,8 +18,8 @@ module.exports = {
       {
          resolve: `gatsby-plugin-manifest`,
          options: {
-            name: `TEC Map`,
-            short_name: `TEC Map`,
+            name: `teamchong.com`,
+            short_name: `teamchong`,
             start_url: `/`,
             background_color: `#002E5D`,
             theme_color: `#002E5D`,
@@ -54,9 +54,43 @@ module.exports = {
             name: `json_data`,
             path: `${__dirname}/src/data`,
          },
-      },// this (optional) plugin enables Progressive Web App + Offline functionality
+      }, // this (optional) plugin enables Progressive Web App + Offline functionality
       "gatsby-plugin-fontawesome-css",
       // To learn more, visit: https://gatsby.dev/offline
-      `gatsby-plugin-offline`,
+      {
+         resolve: `gatsby-plugin-offline`,
+         options: {
+            workboxConfig: {
+               runtimeCaching: [
+                  {
+                     urlPattern: /(\.js$|\.css$|static\/)/,
+                     handler: `CacheFirst`,
+                  },
+                  {
+                     urlPattern: /^https?:.*\/page-data\/.*\/(page-data|app-data)\.json$/,
+                     handler: `NetworkFirst`,
+                     options: {
+                        networkTimeoutSeconds: 1,
+                     },
+                  },
+                  {
+                     urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+                     handler: `StaleWhileRevalidate`,
+                  },
+                  {
+                     urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+                     handler: `StaleWhileRevalidate`,
+                  },
+                  {
+                     urlPattern: /\/$/,
+                     handler: `NetworkFirst`,
+                     options: {
+                        networkTimeoutSeconds: 1,
+                     },
+                  },
+               ],
+            },
+         },
+      },
    ],
 }

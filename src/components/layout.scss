@@ -10,6 +10,19 @@
 // @import "~bulma/sass/layout/section.sass";
 @import "~react-bulma-components/src/index.sass";
 
+img, video{
+   max-width: inherit;
+}
+
+html, body {
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   overflow: hidden;
+}
+
 a.mapboxgl-ctrl-logo {
    display: none !important;
 }
@@ -240,4 +253,15 @@ div.mapboxgl-map {
    0% { background-position: 100% 100%; }
    50% { background-position: 0% 0%; }
    100% { background-position: 100% 100%; }
+}
+#___gatsby {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+}
+
+.breadcrumb .dropdown-menu {
+   margin-bottom: -10px;
 }

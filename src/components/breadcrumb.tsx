@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import Tag from "react-bulma-components/lib/components/tag"
 import BC from "react-bulma-components/lib/components/breadcrumb"
 import Icon from "react-bulma-components/lib/components/icon"
@@ -151,11 +151,11 @@ const initialState = {
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({}) => {
-   const { state: { hash } } = useContext(WinContext)
+   const { state: { hash } } = React.useContext(WinContext)
    const {
       state: { centreGeoJSONLookup, cityGeoJSONLookup, regionGeoJSONLookup },
       dispatch: mapDispatch,
-   } = useContext(MapContext)
+   } = React.useContext(MapContext)
    const breadcrumbItems: Array<{ name: string; url: string; active?: boolean }> = [{ name: `Home`, url: `home` }]
    const href = String(hash.h ?? ``)
    if (centreGeoJSONLookup[href]) {

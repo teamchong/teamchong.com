@@ -38,7 +38,7 @@ function reducer(state: State, action: Action) {
 
 const initialState = { href: null }
 
-const SEO: React.FC<Props> = ({ description = ``, lang = `en`, meta = [], title }) => {
+const SEO: React.FC<Props> = ({ description = ``, lang = `en`, meta = [], title, children }) => {
    const { site } = useStaticQuery(
       graphql`
          query {
@@ -66,6 +66,7 @@ const SEO: React.FC<Props> = ({ description = ``, lang = `en`, meta = [], title 
 
    return (
       <Helmet
+         defer={false}
          htmlAttributes={{
             lang,
          }}
@@ -106,16 +107,12 @@ const SEO: React.FC<Props> = ({ description = ``, lang = `en`, meta = [], title 
             },
          ].concat(meta)}
       >
-         {/^http:/.test(href) && !/\/\/localhost:/.test(href) ? (
-            <meta http-equiv="refresh" content={`0;url=${href.replace(/^http:/, `https:`)}`} />
-         ) : null}
-         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
-         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
          {/* <link
             href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
             rel="stylesheet"
             type="text/css"
          /> */}
+         {children}
       </Helmet>
    )
 }

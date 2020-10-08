@@ -1,5 +1,5 @@
 import { getCoord, center } from "@turf/turf"
-import mapboxgl, { Control } from "mapbox-gl"
+import mapboxgl from "mapbox-gl"
 import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher"
 import { CentreGeoJsonProperties } from "./map-types"
 import { getFitBoundsOptions } from "./map-functions"
@@ -36,8 +36,9 @@ function createGeocoder(centreGeoJSON: GeoJSON.FeatureCollection<GeoJSON.Point, 
       accessToken: mapboxgl.accessToken,
       localGeocoder: localGeocoder(centreGeoJSON),
       mapboxgl,
+      marker: false,
    }
-   console.log({opt})
+   // console.log({opt})
    const geocoder = new MapboxGeocoder(opt)
    return geocoder
 }
@@ -335,6 +336,8 @@ function addEvents(map: mapboxgl.Map, centreGeoJSON: GeoJSON.FeatureCollection<G
    }
 
    // inspect a cluster on click
+   map.doubleClickZoom.disable()
+   map.on(`click`, function(ev) { map.flyTo({ center: ev.lngLat }) })
    map.on(`mouseenter`, `markers`, handleMouseEnter)
    map.on(`mouseleave`, `markers`, handleMouseLeave)
    map.on(`click`, `markers`, handleClick)
