@@ -203,6 +203,7 @@ const IndexPage: React.FC<PageProps<Props>> = ({ data: { site }, path }) => {
             <div className="bg" />
             <div style={footer}>&copy; 2019 Steven Chong</div>
          </Box>
+         hello word
       </Layout>
    )
 }
