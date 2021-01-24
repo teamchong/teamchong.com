@@ -57,18 +57,12 @@ function SocialBar() {
             &nbsp; get in touch
          </div>
          <div className="line1" />
-         <div className="social-links">
-            <a href="https://facebook.com/chong1222" target="_blank" rel="noopener noreferrer">
-               <FontAwesomeIcon icon={[`fab`, `facebook-square`]} />
-            </a>
+         <div className="s-links">
             <a href="https://github.com/teamchong" target="_blank" rel="noopener noreferrer">
                <FontAwesomeIcon icon={[`fab`, `github-square`]} />
             </a>
             <a href="https://linkedin.com/in/teamchong" target="_blank" rel="noopener noreferrer">
                <FontAwesomeIcon icon={[`fab`, `linkedin`]} />
-            </a>
-            <a href="https://wa.me/85290388912" target="_blank" rel="noopener noreferrer">
-               <FontAwesomeIcon icon={[`fab`, `whatsapp-square`]} />
             </a>
             <a href="skype:hk90388912">
                <FontAwesomeIcon icon={[`fab`, `skype`]} style={{ marginTop: `5px` }} />
@@ -198,6 +192,7 @@ const IndexPage: React.FC<PageProps<Props>> = ({ data: { site }, path }) => {
                onMouseEnter={handleAddOil}
                onMouseOut={handleAddOil}
                src="/hkaddoil.png"
+               style={{display:'none'}}
                alt="香港加油"
             />
             <div className="bg" />

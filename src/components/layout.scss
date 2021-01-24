@@ -118,7 +118,7 @@ div.mapboxgl-map {
    background: linear-gradient(rgba(0, 0, 0, 0.001), rgba(0, 0, 0, 0.5)); /* transparent keyword is broken in Safari */
 }
 
-.social-links {
+.s-links {
    display: flex;
    justify-content: space-around;
    > a {
@@ -133,12 +133,12 @@ div.mapboxgl-map {
       &:hover {
          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23009bff' stroke-width='1' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
          text-decoration: none;
-         animation: social-links-loop1 3s infinite;
+         animation: s-links-loop1 3s infinite;
       }
    }
 }
 
-@keyframes social-links-loop1 {
+@keyframes s-links-loop1 {
    0% {
       margin-left: 0;
       margin-right: 0;
