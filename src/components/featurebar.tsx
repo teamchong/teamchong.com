@@ -279,6 +279,9 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
                               <Card.Footer.Item renderAs="a" href={`https://www.google.com/maps/dir/?api=1&origin=${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}&destination=${encodeURIComponent(feature.properties.city)}`} target="_blank">
                                  Directions
                               </Card.Footer.Item>
+                              <Card.Footer.Item renderAs="a" href={`/tec-centre/${feature.properties.id}`} target="_blank">
+                                 Details
+                              </Card.Footer.Item>
                            </Card.Footer>
                         </Card>
                      )

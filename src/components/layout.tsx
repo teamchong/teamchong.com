@@ -67,7 +67,7 @@ const Layout: React.FC<Props> = ({ children }) => {
    //       }
    //    }
    // `)
-   const [winState, winDispatch] = React.useReducer(winReducer, { winWidth: null, winHeight: null, hash: {h:window.location.pathname.replace(/^\/tec\//, '')} })
+   const [winState, winDispatch] = React.useReducer(winReducer, { winWidth: null, winHeight: null, hash: null })
    
    React.useEffect(() => {
       winDispatch({ type: `INITIALIZE`, payload: { winWidth: window.innerWidth, winHeight: window.innerHeight, hash: getHash() } })

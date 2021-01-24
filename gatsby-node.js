@@ -67,8 +67,8 @@ exports.onPostBuild = ({ reporter }) => {
 // // Create blog pages dynamically
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
-  console.log(page)
-  if (/^\/tec\//.test(page?.path)) {
+  // console.log(page)
+  if (page && page.path && /^\/tec\//.test(page.path)) {
      createPage({
         path: '/tec/',
         matchPath: '/tec/*',

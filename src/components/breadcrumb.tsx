@@ -157,7 +157,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({}) => {
       dispatch: mapDispatch,
    } = React.useContext(MapContext)
    const breadcrumbItems: Array<{ name: string; url: string; active?: boolean }> = [{ name: `Home`, url: `home` }]
-   const href = String(hash.h ?? ``)
+   const href = String(hash?.h ?? ``)
    if (centreGeoJSONLookup[href]) {
       const { region, city, name, id } = centreGeoJSONLookup[href].features[0].properties
       if (region !== city) {

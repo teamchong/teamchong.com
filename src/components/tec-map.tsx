@@ -17,11 +17,11 @@ function refreshHref(
    bounds: LngLatBounds,
    renderedFeatures: Array<mapboxgl.MapboxGeoJSONFeature>,
    movingTo: string,
-   href: string,
+   href: string | null,
    winDispatch: (action: WinAction) => void
 ) {
    return () => {
-      if (!bounds || movingTo) return
+      if (!href || !bounds || movingTo) return
       let newHref: string = ``
       let clusteredCount: number = 0
       let countriesCount: { [country: string]: number } = {}
@@ -101,7 +101,7 @@ function initializeMap(
    mapDispatch: (action: MapAction) => void,
    mapRef: React.MutableRefObject<HTMLDivElement>,
    centreGeoJSON: GeoJSON.FeatureCollection<GeoJSON.Point, CentreGeoJsonProperties>,
-   hash: { [key: string]: string | string[] }
+   hash: { [key: string]: string | string[] } | null
 ) {
    return () => {
       async function run() {
@@ -136,8 +136,8 @@ function initializeMap(
                renderedFeatures: map.queryRenderedFeatures({ layers: [`clusters`] } as any),
             },
          })
-         if (hash.h) {
-            mapDispatch({ type: `MOVE`, payload: String(hash.h ?? ``).toLowerCase() })
+         if (hash?.h) {
+            mapDispatch({ type: `MOVE`, payload: String(hash?.h ?? ``).toLowerCase() })
          } else {
             mapDispatch({ type: `MOVE`, payload: `home` })
          }
@@ -158,10 +158,10 @@ const TecMap = React.forwardRef<HTMLDivElement, Props>(({ children }, mapRef: Re
    if (!mapRef) mapRef = useRef<HTMLDivElement>(null)
 
    React.useEffect(initializeMap(mapDispatch, mapRef, centreGeoJSON, hash), [])
-   React.useEffect(refreshHref(bounds, renderedFeatures, moveTo, String(hash.h ?? ``), winDispatch), [bounds, renderedFeatures, moveTo, hash.h])
+   React.useEffect(refreshHref(bounds, renderedFeatures, moveTo, hash?.h as string, winDispatch), [bounds, renderedFeatures, moveTo, hash?.h])
    React.useEffect(moveMapTo(map, centreGeoJSONLookup, cityGeoJSONLookup, regionGeoJSONLookup, centreGeoJSON, moveTo, mapDispatch), [
       map,
-      hash.h,
+      hash?.h,
       moveTo,
    ])
    return (
