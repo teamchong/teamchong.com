@@ -151,7 +151,7 @@ const TecMap = React.forwardRef<HTMLDivElement, Props>(({ children }, mapRef: Re
       state: { hash, winHeight, winWidth },
       dispatch: winDispatch,
    } = React.useContext(WinContext)
-   console.log({init1:hash})
+   // console.log({init1:hash})
    const { state: mapState, dispatch: mapDispatch } = React.useContext(MapContext)
    const { map, centreGeoJSON, centreGeoJSONLookup, cityGeoJSONLookup, regionGeoJSONLookup, bounds, zoom, renderedFeatures, moveTo, videoId } = mapState
 

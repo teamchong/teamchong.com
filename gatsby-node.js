@@ -33,7 +33,7 @@ exports.sourceNodes = ({ actions, createContentDigest }) => {
       console.error(error)
    }
 }
-exports.onCreateNode = ({ node, getNodesByType, getNodes, actions }) => {
+exports.onCreateNode = ({ node, actions }) => {
    const { createNodeField } = actions
    // console.log(node)
    switch (node.internal.type) {
@@ -65,7 +65,7 @@ exports.onPostBuild = ({ reporter }) => {
    reporter.info(`Your Gatsby site has been built!`)
 }
 // // Create blog pages dynamically
-exports.onCreatePage = async ({ page, actions }) => {
+exports.onCreatePage = async ({ page, actions, graphql }) => {
   const { createPage } = actions
   // console.log(page)
   if (page && page.path && /^\/tec\//.test(page.path)) {
@@ -75,6 +75,56 @@ exports.onCreatePage = async ({ page, actions }) => {
         component: path.resolve('src/pages/tec.tsx')
      })
   }
+
+//   const result = await graphql(`
+// allRoomJson {
+//    edges {
+//       node {
+//          centre
+//          city
+//          id
+//          market
+//          path
+//          file
+//          fields {
+//             website {
+//                url
+//             }
+//             centre {
+//                name
+//                phone
+//                region
+//                longitude
+//                latitude
+//                isComingSoon
+//                isActive
+//                id
+//                fax
+//                currencyCode
+//                city
+//                address
+//             }
+//          }
+//       }
+//    }
+// }
+//   `)
+  const result = await graphql(`
+allCentreJson {
+   edges {
+      node {
+         id
+      }
+   }
+}
+  `)
+  result.data.allRoomJson.edges.forEach(({ node: { id } }) => {
+    createPage({
+      path: `/tec-centre/${id}/`,
+      matchPath: `/tec-centre/${id}/*`,
+      component: path.resolve('src/pages/tec-centre.tsx')
+    })
+  })
 }
 
 function fetchFiles(path1) {
