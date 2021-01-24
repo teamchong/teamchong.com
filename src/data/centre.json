@@ -1,6 +1,6 @@
 [
    {
-      "code": "WT2",
+      "id": "WT2",
       "name": "World Trade Center 2",
       "address": "Level 9,Tower 2,World Trade Center, Kharadi, Pune 400014, India",
       "city": "Pune",
@@ -14,7 +14,7 @@
       "longitude": 73.948928
    },
    {
-      "code": "BKC",
+      "id": "BKC",
       "name": "The Capital",
       "address": "Level 7,The Capital, Plot No. C-70, G Block, Bandra Kurla Complex, Bandra (East), Mumbai 400051, India",
       "city": "Mumbai",
@@ -28,7 +28,7 @@
       "longitude": 72.861789
    },
    {
-      "code": "KPS",
+      "id": "KPS",
       "name": "Kalpataru Synergy",
       "address": "Level 2, Kalpataru Synergy, Opposite Grand Hyatt, Santacruz (East), Mumbai 400055, India",
       "city": "Mumbai",
@@ -42,7 +42,7 @@
       "longitude": 72.851061
    },
    {
-      "code": "BK2",
+      "id": "BK2",
       "name": "Capital Building 2",
       "address": "Level 3, Plot No. C-70, G Block, Bandra Kurla Complex, Bandra (East), Mumbai 400051, India",
       "city": "Mumbai",
@@ -56,7 +56,7 @@
       "longitude": 72.861789
    },
    {
-      "code": "MMM",
+      "id": "MMM",
       "name": "Maker Maxity",
       "address": "Level 6 & 7, Maker Maxity, 4th North Avenue, Bandra Kurla Complex, Bandra East, Mumbai - 400051",
       "city": "Mumbai",
@@ -70,7 +70,7 @@
       "longitude": 72.850847
    },
    {
-      "code": "OTC",
+      "id": "OTC",
       "name": "Olympia Teknos",
       "address": "Level 8 & 9, Olympia Teknos,  No.28, SIDCO Industrial Estate, Guindy, 600032, Chennai, India",
       "city": "Chennai",
@@ -84,7 +84,7 @@
       "longitude": 80.159938
    },
    {
-      "code": "FIF",
+      "id": "FIF",
       "name": "First International Finance Center",
       "address": "Level 1, First International Financial Centre, Plot No.C-54 & 55, G-Block, Bandra Kurla Complex, Bandra (East), Mumbai-400 098",
       "city": "Mumbai",
@@ -98,7 +98,7 @@
       "longitude": 72.869841
    },
    {
-      "code": "PER",
+      "id": "PER",
       "name": "108 St Georges Terrace",
       "address": "Level 24 and 25, 108 St. Georges Terrace, Perth WA",
       "city": "Perth",
@@ -112,7 +112,7 @@
       "longitude": 115.856901
    },
    {
-      "code": "NNC",
+      "id": "NNC",
       "name": "Neihu New Century",
       "address": "Level 4, Neihu New Century Building, 55 Zhouzi Street, Neihu District, Taipei 114, Taiwan",
       "city": "Taipei",
@@ -126,7 +126,7 @@
       "longitude": 121.572716
    },
    {
-      "code": "GFC",
+      "id": "GFC",
       "name": "Gangnam Finance Centre",
       "address": "Level 41, Gangnam Finance Center, 152 Teheran-ro, Gangnam-gu, Seoul 06236, South Korea",
       "city": "Seoul",
@@ -140,7 +140,7 @@
       "longitude": 127.036556
    },
    {
-      "code": "SF3",
+      "id": "SF3",
       "name": "Three International Finance Centre",
       "address": "Level 43, International Finance Centre Seoul, Three IFC, 10 Gukjegeumyung-ro, Youngdeungpo-gu, Seoul 07326, South Korea",
       "city": "Seoul",
@@ -154,7 +154,7 @@
       "longitude": 126.925939
    },
    {
-      "code": "GF2",
+      "id": "GF2",
       "name": "Gangnam Finance Centre L4",
       "address": "Level 4, Gangnam Finance Center, 152 Teheran-ro, Gangnam-gu, Seoul 06236, South Korea",
       "city": "Seoul",
@@ -168,7 +168,7 @@
       "longitude": 127.036556
    },
    {
-      "code": "FTS",
+      "id": "FTS",
       "name": "Frasers Tower",
       "address": "Level 17, Frasers Tower, 182 Cecil Street, Singapore",
       "city": "Singapore",
@@ -182,7 +182,7 @@
       "longitude": 103.847014
    },
    {
-      "code": "SM2",
+      "id": "SM2",
       "name": "Shin Marunouchi Centre L20",
       "address": "Level 20,Shin-Marunouchi Building,1-6-2 Marunouchi, Chiyoda-ku,Tokyo 100-0005",
       "city": "Tokyo",
@@ -196,7 +196,7 @@
       "longitude": 139.766425
    },
    {
-      "code": "EDO",
+      "id": "EDO",
       "name": "Kyobashi Edo Grand",
       "address": "Level 26, Kyobashi Edo Grand, 2-2-1 Kyobashi, Chuo-ku, Tokyo",
       "city": "Tokyo",
@@ -210,7 +210,7 @@
       "longitude": 139.76962
    },
    {
-      "code": "NEX",
+      "id": "NEX",
       "name": "Nexxus Building",
       "address": "Level 15 and 16 Nexxus Building 41 Connaught Road Central Hong Kong",
       "city": "Hong Kong",
@@ -224,7 +224,7 @@
       "longitude": 114.156603
    },
    {
-      "code": "PBB",
+      "id": "PBB",
       "name": "Business Bay",
       "address": "Level 6, Wing 1, Tower A, Business Bay, Survey No 103, Hissa No 2, Airport Road, Yerwada, Pune 411 006, India",
       "city": "Pune",
@@ -238,7 +238,7 @@
       "longitude": 73.890389
    },
    {
-      "code": "TAI",
+      "id": "TAI",
       "name": "Taipei 101",
       "address": "Level 37 & 57, TAIPEI 101 Tower, No. 7, Section 5, Xinyi Road, Taipei",
       "city": "Taipei",
@@ -252,7 +252,7 @@
       "longitude": 121.564758
    },
    {
-      "code": "5CA",
+      "id": "5CA",
       "name": "5 Corporate Avenue",
       "address": "Level 23, 5 Corporate Avenue, 150 Hubin Road, Huangpu District, Shanghai",
       "city": "Shanghai",
@@ -266,7 +266,7 @@
       "longitude": 121.478992
    },
    {
-      "code": "CIT",
+      "id": "CIT",
       "name": "Citic Square",
       "address": "Level 42, Citic Square, 1168 West Nanjing Road, Jing'an District, Shanghai",
       "city": "Shanghai",
@@ -280,7 +280,7 @@
       "longitude": 121.455677
    },
    {
-      "code": "CHF",
+      "id": "CHF",
       "name": "Chong Hing Finance Center",
       "address": "Level 12, Chong Hing Finance Center, 288 West Nanjing Road, Huangpu District, Shanghai",
       "city": "Shanghai",
@@ -294,7 +294,7 @@
       "longitude": 121.470238
    },
    {
-      "code": "CEN",
+      "id": "CEN",
       "name": "The Center",
       "address": "Level 20, The Center, 989 ChangLe Road, Puxi, Shanghai, China",
       "city": "Shanghai",
@@ -308,7 +308,7 @@
       "longitude": 121.447059
    },
    {
-      "code": "KHZ",
+      "id": "KHZ",
       "name": "Kerry Centre Hangzhou",
       "address": "Level 8, Office Tower, Hangzhou Kerry Centre, No.385, Yan An Rd, Hangzhouï¼PR China 310006",
       "city": "Hangzhou",
@@ -322,7 +322,7 @@
       "longitude": 120.16232
    },
    {
-      "code": "HMT",
+      "id": "HMT",
       "name": "Hyundai Motor Tower",
       "address": "Level 17, Hyundai Motor Tower, 38 Xiaoyun Road, Chaoyang District, Beijing",
       "city": "Beijing",
@@ -336,7 +336,7 @@
       "longitude": 116.462586
    },
    {
-      "code": "TOP",
+      "id": "TOP",
       "name": "The One Place",
       "address": "Level 10, Shu Wang zi Hui Tower, No. 987 Mo Gan Shan Road, Gong Shu District, Hangzhou 310011, China",
       "city": "Hangzhou",
@@ -350,7 +350,7 @@
       "longitude": 120.119664
    },
    {
-      "code": "CCP",
+      "id": "CCP",
       "name": "China Central Place",
       "address": "Level 9, Tower 2, China Central Place, No.79 Jianguo Road, Chaoyang District, Beijing 100025",
       "city": "Beijing",
@@ -364,7 +364,7 @@
       "longitude": 116.481477
    },
    {
-      "code": "YT2",
+      "id": "YT2",
       "name": "Beijing Yintai Centre L31",
       "address": "Level 31, Beijing Yintai Office Tower, 2 Jianguomenwai Avenue, Chaoyang District, Beijing",
       "city": "Beijing",
@@ -378,7 +378,7 @@
       "longitude": 116.458997
    },
    {
-      "code": "FSP",
+      "id": "FSP",
       "name": "Financial Street Centre",
       "address": "Level 10, South Tower, Financial Street Center, No. 9A Financial Street, Xicheng District, Beijing 100033",
       "city": "Beijing",
@@ -392,7 +392,7 @@
       "longitude": 116.359136
    },
    {
-      "code": "CIF",
+      "id": "CIF",
       "name": "Chengdu IFS",
       "address": "Level 45, Office Tower I, IFS, No.1 Section 3 Hongxing Road, Jinjiang District, Chengdu, China",
       "city": "Chengdu",
@@ -406,7 +406,7 @@
       "longitude": 104.08218
    },
    {
-      "code": "CRS",
+      "id": "CRS",
       "name": "China Resources Tower Shenzhen",
       "address": "Level 6, China Resources Tower, No. 2666 South Keyuan Road, Nanshan District, Shenzhen",
       "city": "Shenzhen",
@@ -420,7 +420,7 @@
       "longitude": 113.94656
    },
    {
-      "code": "CYT",
+      "id": "CYT",
       "name": "Chengdu Yintai",
       "address": "Level 33, Tower 2 Yintai Centre, No.1199 Tianfu Avenue North, High-tech Zone Chengdu",
       "city": "Chengdu",
@@ -434,7 +434,7 @@
       "longitude": 104.069604
    },
    {
-      "code": "MFR",
+      "id": "MFR",
       "name": "Mfar Greenheart Manyata Tech Park",
       "address": "Level 7, Mfar Greenheart, Manyata Tech Park, Hebbal Outer Ring Road, Bangalore",
       "city": "Bangalore",
@@ -448,7 +448,7 @@
       "longitude": 77.620962
    },
    {
-      "code": "WTC",
+      "id": "WTC",
       "name": "World Trade Center",
       "address": "Level 9,Tower 2, Kharadi, Pune 400014, India",
       "city": "Pune",
@@ -462,7 +462,7 @@
       "longitude": 73.948928
    },
    {
-      "code": "QTB",
+      "id": "QTB",
       "name": "Qutab Crescent Centre",
       "address": "Level 1 & 2, Crescent Building ,Lado Sarai, Mehrauli, New Delhi 110030, India",
       "city": "New Delhi",
@@ -476,7 +476,7 @@
       "longitude": 77.190523
    },
    {
-      "code": "KHO",
+      "id": "KHO",
       "name": "Prestige Khoday Tower",
       "address": "Level 10 &11, Prestige Khoday Tower, No. 5 Raj Bhavan Road, Bangalore 560001, India",
       "city": "Bangalore",
@@ -490,7 +490,7 @@
       "longitude": 77.594019
    },
    {
-      "code": "PTT",
+      "id": "PTT",
       "name": "Prestige Trade Tower",
       "address": "Level 11, Prestige Trade Tower, 46 Palace Road, Bangalore 560001",
       "city": "Bangalore",
@@ -504,7 +504,7 @@
       "longitude": 77.588219
    },
    {
-      "code": "KWA",
+      "id": "KWA",
       "name": "K Wah Centre",
       "address": "Level 27, K. Wah Centre, 1010 Middle Huaihai Road, Xuhui District, Shanghai 200021, Peopleâs Republic of China",
       "city": "Shanghai",
@@ -518,7 +518,7 @@
       "longitude": 121.455928
    },
    {
-      "code": "CRT",
+      "id": "CRT",
       "name": "Cerulean Tower",
       "address": "Level 15, Cerulean Tower, 26-1, Sakuragaoka-cho, Shibuya-ku, Tokyo 150-8512, Japan",
       "city": "Tokyo",
@@ -532,7 +532,7 @@
       "longitude": 139.699567
    },
    {
-      "code": "PCW",
+      "id": "PCW",
       "name": "PCCW Tower",
       "address": "Level 36, 979 King's Road, Quarry Bay, Hong Kong",
       "city": "Hong Kong",
@@ -546,7 +546,7 @@
       "longitude": 114.21203
    },
    {
-      "code": "MG1",
+      "id": "MG1",
       "name": "Maga One",
       "address": "Level 12 & 13, Maga One,  No. 200 Nawala Road, Narahenpita, Colombo 05, Sri Lanka",
       "city": "colombo",
@@ -560,7 +560,7 @@
       "longitude": 79.887255
    },
    {
-      "code": "coL",
+      "id": "coL",
       "name": "World Trade Center Colombo",
       "address": "Level 35 & 37, World Trade Center, West Tower, Colombo 01, Colombo, Sri Lanka",
       "city": "colombo",
@@ -574,7 +574,7 @@
       "longitude": 79.843639
    },
    {
-      "code": "NAN",
+      "id": "NAN",
       "name": "Taipei Nanshan Plaza",
       "address": "Level 34, Nanshan Financial Centre, No.100, Songren Rd., Xinyi Dist., Taipei 110, Taiwan",
       "city": "Taipei",
@@ -588,7 +588,7 @@
       "longitude": 121.568582
    },
    {
-      "code": "EHQ",
+      "id": "EHQ",
       "name": "Enterprise Headquarter Building",
       "address": "Level 19, Enterprise Headquarter Building, 170 Weiyang Road, Weiyang District, Xian",
       "city": "Xian",
@@ -602,7 +602,7 @@
       "longitude": 108.94556
    },
    {
-      "code": "CC2",
+      "id": "CC2",
       "name": "China Central Place L6",
       "address": "Level 6, Tower 2, China Central Place, No.79 Jianguo Road, Chaoyang District, Beijing  100025",
       "city": "Beijing",
@@ -616,7 +616,7 @@
       "longitude": 116.481477
    },
    {
-      "code": "XTD",
+      "id": "XTD",
       "name": "Xintiandi",
       "address": "Level 5, Xintiandi, 159 Madang Road, Huangpu District, Shanghai",
       "city": "Shanghai",
@@ -630,7 +630,7 @@
       "longitude": 121.475182
    },
    {
-      "code": "SC1",
+      "id": "SC1",
       "name": "Saigon Centre",
       "address": "Level 14, Saigon Centre Tower 1, 65 Le Loi Street, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",
       "city": "Ho Chi Minh City",
@@ -644,7 +644,7 @@
       "longitude": 106.70093
    },
    {
-      "code": "RCB",
+      "id": "RCB",
       "name": "RCBC Plaza",
       "address": "Level 26, Tower 2, RCBC Plaza, 6819 Ayala Avenue, Makati City, Phillipines",
       "city": "Manila",
@@ -658,7 +658,7 @@
       "longitude": 121.016893
    },
    {
-      "code": "OF2",
+      "id": "OF2",
       "name": "Ocean Financial Centre L37",
       "address": "Level 37, Ocean Financial Centre, 10 Collyer Quay, Raffles Place, Singapore",
       "city": "Singapore",
@@ -672,7 +672,7 @@
       "longitude": 103.8515
    },
    {
-      "code": "MBF",
+      "id": "MBF",
       "name": "Marina Bay Financial Centre",
       "address": "Level 11, Marina Bay Financial Centre Tower 1, 8 Marina Blvd, Singapore 018981",
       "city": "Singapore",
@@ -686,7 +686,7 @@
       "longitude": 103.853317
    },
    {
-      "code": "IFC",
+      "id": "IFC",
       "name": "International Finance Centre",
       "address": "Level 8 and 36, Shanghai International Finance Centre Tower II, 8 Century Avenue, Pudong Shanghai",
       "city": "Shanghai",
@@ -700,7 +700,7 @@
       "longitude": 121.502152
    },
    {
-      "code": "HNA",
+      "id": "HNA",
       "name": "HNA",
       "address": "Level 10, HNA Tower, 8 Linhe Zhong Road, Tianhe District, Guangzhou",
       "city": "Guangzhou",
@@ -714,7 +714,7 @@
       "longitude": 113.326252
    },
    {
-      "code": "JNT",
+      "id": "JNT",
       "name": "Jongno Tower",
       "address": "Level 17, Jongno Tower , 51 Jongno, Jongno-gu, Seoul",
       "city": "Seoul",
@@ -728,7 +728,7 @@
       "longitude": 126.983616
    },
    {
-      "code": "BES",
+      "id": "BES",
       "name": "Eagle Street",
       "address": "Level 54, One One One Eagle Street, Brisbane, QLD",
       "city": "Brisbane",
@@ -742,7 +742,7 @@
       "longitude": 153.030361
    },
    {
-      "code": "ASQ",
+      "id": "ASQ",
       "name": "Australia Square",
       "address": "Level 33, Australia Square, 264 George Street, Sydney, NSW2000",
       "city": "Sydney",
@@ -756,7 +756,7 @@
       "longitude": 151.207769
    },
    {
-      "code": "2PP",
+      "id": "2PP",
       "name": "Two Pacific Place",
       "address": "Level 35, Two Pacific Place, 88 Queensway, Admiralty, Hong Kong",
       "city": "Hong Kong",
@@ -770,7 +770,7 @@
       "longitude": 114.165328
    },
    {
-      "code": "GPT",
+      "id": "GPT",
       "name": "Governor Phillip Tower",
       "address": "Level 36, Governor Phillip Tower, 1 Farrer Place, Sydney, NSW 2000, Australia",
       "city": "Sydney",
@@ -784,7 +784,7 @@
       "longitude": 151.210598
    },
    {
-      "code": "RN2",
+      "id": "RN2",
       "name": "Roppongi Hills North Tower L16",
       "address": "Level 16, Roppongi Hills North Tower, 6-2-31 Roppongi, Minato-ku, Tokyo, Japan 106-0032",
       "city": "Tokyo",
@@ -798,7 +798,7 @@
       "longitude": 139.730237
    },
    {
-      "code": "1BL",
+      "id": "1BL",
       "name": "One Bligh Street",
       "address": "Level 26, 1 Bligh Street, Sydney, NSW 2000",
       "city": "Sydney",
@@ -812,7 +812,7 @@
       "longitude": 151.211032
    },
    {
-      "code": "IT3",
+      "id": "IT3",
       "name": "Three International Towers",
       "address": "Level 24, Three International Towers, 300 Barangaroo Avenue, Sydney NSW 2000",
       "city": "Sydney",
@@ -826,7 +826,7 @@
       "longitude": 151.202218
    },
    {
-      "code": "28H",
+      "id": "28H",
       "name": "28 Hennessy Road",
       "address": "Level 5 and 6 28 Hennessy Road Admiralty Hong Kong",
       "city": "Hong Kong",
@@ -840,7 +840,7 @@
       "longitude": 114.16935
    },
    {
-      "code": "1HC",
+      "id": "1HC",
       "name": "One Horizon Center",
       "address": "Level 18, One Horizon Center, Golf Course Road, DLF Phaseâ5, Sector 43, Gurgaon 122002, India",
       "city": "Gurgaon",
@@ -854,7 +854,7 @@
       "longitude": 77.097222
    },
    {
-      "code": "DB5",
+      "id": "DB5",
       "name": "Gurgaon DLF Cyber City",
       "address": "Level 18, DLF Building No. 5, Tower A, Phase III, DLF Cyber City, Gurgaon 122002, India",
       "city": "Gurgaon",
@@ -868,7 +868,7 @@
       "longitude": 77.092814
    },
    {
-      "code": "2HC",
+      "id": "2HC",
       "name": "Two Horizon Center",
       "address": "Level 12, Two Horizon Center, Golf Course Road, DLF Phaseâ5, Sector 43, Gurgaon 122002, India",
       "city": "Gurgaon",
@@ -882,7 +882,7 @@
       "longitude": 77.097222
    },
    {
-      "code": "PPJ",
+      "id": "PPJ",
       "name": "One Pacific Place",
       "address": "Level 11, One Pacific Place, Jl. Jend. Sudirman Kav. 52-53, âSudirman Central Business District (SCBD )â , Jakarta, Indonesia 12190",
       "city": "Jakarta",
@@ -896,7 +896,7 @@
       "longitude": 106.818383
    },
    {
-      "code": "TTP",
+      "id": "TTP",
       "name": "Tamarai Tech Park",
       "address": "Level 5, Tamarai Tech Park, S.P.Plot No.16-19 & 20-A, Thiru Vi Ka Industrial Estate, Inner Ring Road, Guindy, Chennai 600032, India",
       "city": "Chennai",
@@ -910,7 +910,7 @@
       "longitude": 80.203037
    },
    {
-      "code": "PPC",
+      "id": "PPC",
       "name": "Prestige Palladium Chennai",
       "address": "Level 5, Prestige Palladium Bayan, 129 â 140 Greams Road, Chennai",
       "city": "Chennai",
@@ -924,7 +924,7 @@
       "longitude": 80.253562
    },
    {
-      "code": "NPS",
+      "id": "NPS",
       "name": "Northpoint Tower",
       "address": "Level 40, Northpoint Tower, 100 Miller Street, North Sydney NSW2060",
       "city": "Sydney",
@@ -938,7 +938,7 @@
       "longitude": 151.207033
    },
    {
-      "code": "ORQ",
+      "id": "ORQ",
       "name": "One Raffles Quay",
       "address": "Level 25, One Raffles Quay North Tower, Raffles Place, Singapore",
       "city": "Singapore",
@@ -952,7 +952,7 @@
       "longitude": 103.852389
    },
    {
-      "code": "6BR",
+      "id": "6BR",
       "name": "Six Battery Road",
       "address": "Level 42, 6 Battery Road",
       "city": "Singapore",
@@ -966,7 +966,7 @@
       "longitude": 103.851834
    },
    {
-      "code": "GWW",
+      "id": "GWW",
       "name": "The Gateway West",
       "address": "Level 35, The Gateway West, 150 Beach Road, Singapore 189720",
       "city": "Singapore",
@@ -980,7 +980,7 @@
       "longitude": 103.859366
    },
    {
-      "code": "PRU",
+      "id": "PRU",
       "name": "Prudential Tower",
       "address": "30 Cecil Street, Prudential Tower Level 15",
       "city": "Singapore",
@@ -994,7 +994,7 @@
       "longitude": 103.849833011627
    },
    {
-      "code": "EXC",
+      "id": "EXC",
       "name": "Two Exchange Square",
       "address": "Level 5, 7 and 8 Two Exchange Square 8 Connaught Place Central, Hong Kong",
       "city": "Hong Kong",
@@ -1008,7 +1008,7 @@
       "longitude": 114.158172
    },
    {
-      "code": "SOP",
+      "id": "SOP",
       "name": "Shui On Plaza",
       "address": "Level 22, Shui On Plaza, No.333, Middle Huaihai Road, Huangpu District, Shanghai, 200021",
       "city": "Shanghai",
@@ -1022,7 +1022,7 @@
       "longitude": 121.474194
    },
    {
-      "code": "TKH",
+      "id": "TKH",
       "name": "Taikoo Hui",
       "address": "Level 7-02, Taikoo Hui Tower 1, 385 Tianhe Road, Tianhe District, Guangzhou",
       "city": "Guangzhou",
@@ -1036,7 +1036,7 @@
       "longitude": 113.333221
    },
    {
-      "code": "K08",
+      "id": "K08",
       "name": "K11 L8 Conference Centre",
       "address": "Level 8, Guangzhou CTF Finance Center, No.6 Zhujiang Dong Road, Tianhe District, Guangzhou, China",
       "city": "Guangzhou",
@@ -1050,7 +1050,7 @@
       "longitude": 113.326044
    },
    {
-      "code": "K12",
+      "id": "K12",
       "name": "K11 L38",
       "address": "Level 38, Guangzhou CTF Finance Center, No.6 Zhujiang Dong Road, Tianhe District, Guangzhou, China",
       "city": "Guangzhou",
@@ -1064,7 +1064,7 @@
       "longitude": 113.326044
    },
    {
-      "code": "K11",
+      "id": "K11",
       "name": "K11",
       "address": "Level 9, Guangzhou CTF Finance Center, No.6 Zhujiang Dong Road, Tianhe District, Guangzhou, China",
       "city": "Guangzhou",
@@ -1078,7 +1078,7 @@
       "longitude": 113.326044
    },
    {
-      "code": "KT3",
+      "id": "KT3",
       "name": "Kerry Plaza Tower 3",
       "address": "Level 13, Tower 3, Kerry Plaza, No. 1-1 Zhong Xin Si Road, Futian District, Shenzhen 518048",
       "city": "Shenzhen",
@@ -1092,7 +1092,7 @@
       "longitude": 114.056971
    },
    {
-      "code": "KER",
+      "id": "KER",
       "name": "Kerry Plaza Tower 2",
       "address": "Level 15, Kerry Plaza Tower 2, No.1 Zhong Xin Si Road, Futian District, Shenzhen 518048",
       "city": "Shenzhen",
@@ -1106,7 +1106,7 @@
       "longitude": 114.058143
    },
    {
-      "code": "GEM",
+      "id": "GEM",
       "name": "GEM Tower",
       "address": "Level 13 & 14, GEM Tower, No. 3033 Zhongxin Road, Houhai Nanshan District, Shenzhen 518054",
       "city": "Shenzhen",
@@ -1120,7 +1120,7 @@
       "longitude": 113.9411
    },
    {
-      "code": "TPP",
+      "id": "TPP",
       "name": "Three Pacific Place",
       "address": "Level 3 Three Pacific Place 1 Queen's Road East Admiralty, Hong Kong",
       "city": "Hong Kong",
@@ -1134,7 +1134,7 @@
       "longitude": 114.1681
    },
    {
-      "code": "CSQ",
+      "id": "CSQ",
       "name": "collins Square",
       "address": "Level 23 Tower 5, 727 Collins Street Melbourne VIC 3008, Australia",
       "city": "Melbourne",
@@ -1148,7 +1148,7 @@
       "longitude": 144.950024
    },
    {
-      "code": "CBH",
+      "id": "CBH",
       "name": "Cambridge House",
       "address": "Level 8 Cambridge House Taikoo Place 979 King's Road Island East Hong Kong",
       "city": "Hong Kong",
@@ -1162,7 +1162,7 @@
       "longitude": 114.210786
    },
    {
-      "code": "OIE",
+      "id": "OIE",
       "name": "One Island East",
       "address": "Level 23 and 60 One Island East 18 Westlands Road Island East, Hong Kong",
       "city": "Hong Kong",
@@ -1176,7 +1176,7 @@
       "longitude": 114.213339
    },
    {
-      "code": "PTC",
+      "id": "PTC",
       "name": "Prosperity Tower",
       "address": "Level 22-26, Prosperity Tower, 39 Queen's Road Central, Central",
       "city": "Hong Kong",
@@ -1190,7 +1190,7 @@
       "longitude": 114.156248
    },
    {
-      "code": "HKC",
+      "id": "HKC",
       "name": "The Hong Kong Club Building",
       "address": "Level 15 and 16 The Hong Kong Club Building 3A Chater Road Central, Hong Kong",
       "city": "Hong Kong",
@@ -1204,7 +1204,7 @@
       "longitude": 114.161139
    },
    {
-      "code": "PFC",
+      "id": "PFC",
       "name": "Pingan Finance Centre",
       "address": "Level 25, Pingan Finance Centre, 99 Dongda Street, Jinjiang, Wuhou District, Chengdu 610041",
       "city": "Chengdu",
@@ -1218,7 +1218,7 @@
       "longitude": 104.0811
    },
    {
-      "code": "SFC",
+      "id": "SFC",
       "name": "Seoul Finance Centre",
       "address": "Level 21, Seoul Finance Center, 136 Sejong-daero, Jung-gu, Seoul 04520, South Korea",
       "city": "Seoul",
@@ -1232,7 +1232,7 @@
       "longitude": 126.978128
    },
    {
-      "code": "RCC",
+      "id": "RCC",
       "name": "Raffles City Chengdu Tower",
       "address": "Level 17, Raffles City Chengdu Tower 2, No.3, Section 4, South Renmin Road, Wuhou District, Chengdu",
       "city": "Chengdu",
@@ -1246,7 +1246,7 @@
       "longitude": 104.066958
    },
    {
-      "code": "CW5",
+      "id": "CW5",
       "name": "China World Tower B",
       "address": "Level 23, China World Tower B, 1 Jianguomenwai Avenue, Chaoyang District, Beijing",
       "city": "Beijing",
@@ -1260,7 +1260,7 @@
       "longitude": 116.458231
    },
    {
-      "code": "CWO",
+      "id": "CWO",
       "name": "China World Office 1",
       "address": "Level 14, China World Office 1, 1 Jianguomenwai Avenue, Chaoyang District, Beijing",
       "city": "Beijing",
@@ -1274,7 +1274,7 @@
       "longitude": 116.458399
    },
    {
-      "code": "YTC",
+      "id": "YTC",
       "name": "Beijing Yintai Centre",
       "address": "Level 15, Beijing Yintai Office Tower, 2 Jianguomenwai Avenue, Chaoyang District, Beijing",
       "city": "Beijing",
@@ -1288,7 +1288,7 @@
       "longitude": 116.458997
    },
    {
-      "code": "CRB",
+      "id": "CRB",
       "name": "China Resources Building",
       "address": "Level 12, China Resources Building, 8 Jianguomenbei Avenue, Dongcheng District, Beijing",
       "city": "Beijing",
@@ -1302,7 +1302,7 @@
       "longitude": 116.434022
    },
    {
-      "code": "CW3",
+      "id": "CW3",
       "name": "China World Office 2",
       "address": "Level 24, China World Office 2, No. 1 Jianguomenwai Avenue, Chaoyang District, Beijing 100004 P.R. China",
       "city": "Beijing",
@@ -1316,7 +1316,7 @@
       "longitude": 116.460462
    },
    {
-      "code": "AUR",
+      "id": "AUR",
       "name": "Aurora Place",
       "address": "Level 25, Aurora Place, 88 Phillip Street, Sydney, NSW2000",
       "city": "Sydney",
@@ -1330,7 +1330,7 @@
       "longitude": 151.211792
    },
    {
-      "code": "1FC",
+      "id": "1FC",
       "name": "Hong Kong One IFC",
       "address": "20/F, One International Finance Centre, 1 Harbour View Street, Central, Hong Kong",
       "city": "Hong Kong",
@@ -1344,7 +1344,7 @@
       "longitude": 114.156835
    },
    {
-      "code": "OFC",
+      "id": "OFC",
       "name": "Ocean Financial Centre",
       "address": "Level 40, Ocean Financial Centre, 10 Collyer Quay, Raffles Place, Singapore 049315",
       "city": "Singapore",
@@ -1358,7 +1358,7 @@
       "longitude": 103.85195
    },
    {
-      "code": "CRC",
+      "id": "CRC",
       "name": "Tribe",
       "address": "51B/52B Circular Road Singapore",
       "city": "Singapore",
@@ -1372,7 +1372,7 @@
       "longitude": 103.849527
    },
    {
-      "code": "SSS",
+      "id": "SSS",
       "name": "Sampoerna Strategic Square",
       "address": "Level 18, Sampoerna Strategic Square, South Tower, Jl. Jend. Sudirman Kav. 45-46, Jakarta",
       "city": "Jakarta",
@@ -1386,7 +1386,7 @@
       "longitude": 106.818383
    },
    {
-      "code": "CCC",
+      "id": "CCC",
       "name": "Two Chinachem Central",
       "address": "Level 5 to 19, Two Chinachem Central,  26 Des Voeux Road Central, Central Hong Kong",
       "city": "Hong Kong",
@@ -1400,7 +1400,7 @@
       "longitude": 114.156852
    },
    {
-      "code": "RTP",
+      "id": "RTP",
       "name": "Ramaiah Tech Park",
       "address": "Level 10, Wing C, Helios Business Park, Sy No-24/1, 25/2 & 26/1, Kadubeesanahalli, Varthur Hobli, Bangalore-560103",
       "city": "Bangalore",
@@ -1414,7 +1414,7 @@
       "longitude": 77.564322
    },
    {
-      "code": "FTR",
+      "id": "FTR",
       "name": "Friendship Tower",
       "address": "Level 6 & 7, Friendship Tower, No. 31 Le Duan Street, Ben Nghe Ward, District 1, Ho Chi Minh City 70000, Vietnam",
       "city": "Ho Chi Minh City",
@@ -1428,7 +1428,7 @@
       "longitude": 106.700797
    },
    {
-      "code": "KJA",
+      "id": "KJA",
       "name": "Kerry Jingan",
       "address": "Level 7 & 8, Jing An Kerry Centre,Â 1515 Nanjing Road West, Jingan District, Shanghai",
       "city": "Shanghai",
@@ -1442,7 +1442,7 @@
       "longitude": 121.45014
    },
    {
-      "code": "3GR",
+      "id": "3GR",
       "name": "3 Garden Road",
       "address": "Level 43 & 44, Champion Tower, 3 Garden Road, Central, Hong Kong",
       "city": "Hong Kong",
@@ -1456,7 +1456,7 @@
       "longitude": 114.160574
    },
    {
-      "code": "KT1",
+      "id": "KT1",
       "name": "Kerry Plaza Tower 1",
       "address": "Level 3, Tower 1, Kerry Plaza, No. 1-1 Zhong Xin Si Road, Futian District, Shenzhen 518048",
       "city": "Shenzhen",
@@ -1470,7 +1470,7 @@
       "longitude": 114.058118
    },
    {
-      "code": "TFT",
+      "id": "TFT",
       "name": "Taiping Finance Tower",
       "address": "Level 14, Taiping Finance Tower, 6001 Yitian Road, Futian District, Shenzhen 518000",
       "city": "Shenzhen",
@@ -1484,7 +1484,7 @@
       "longitude": 114.055557
    },
    {
-      "code": "UBC",
+      "id": "UBC",
       "name": "UB City",
       "address": "Level 11, Canberra, UB City, 24 Vittal Mallya Road, Bangalore",
       "city": "Bangalore",
@@ -1498,7 +1498,7 @@
       "longitude": 77.595803
    },
    {
-      "code": "NA2",
+      "id": "NA2",
       "name": "Taipei Nanshan Plaza L37",
       "address": "Level 37, Taipei Nanshan Plaza, No 100, Songren Road, Xinyi District, Taipei 110, Taiwan",
       "city": "Taipei",
@@ -1512,7 +1512,7 @@
       "longitude": 121.568582
    },
    {
-      "code": "WFC",
+      "id": "WFC",
       "name": "World Financial Centre",
       "address": "Level 41, Tianjin World Financial Centre, 2 Dagubei Road, Heping District, Tianjin",
       "city": "Tianjin",
@@ -1526,7 +1526,7 @@
       "longitude": 117.202805
    },
    {
-      "code": "MSD",
+      "id": "MSD",
       "name": "TEDA MSD C1 Tower",
       "address": "Level 17, TEDA MSD C1 Tower, No. 79 First Avenue, TEDA, Tianjian, China 300457",
       "city": "Tianjin",
@@ -1540,7 +1540,7 @@
       "longitude": 117.707659
    },
    {
-      "code": "EXT",
+      "id": "EXT",
       "name": "The Exchange Tower 2",
       "address": "Level 29, The Exchange Tower 2, 189 Nanjing Road, Heping District, Tianjin",
       "city": "Tianjin",
@@ -1554,7 +1554,7 @@
       "longitude": 117.196767
    },
    {
-      "code": "YJP",
+      "id": "YJP",
       "name": "Innovative Financial Building",
       "address": "Level 18, Innovative Financial Building, No. 3678 Xin Hua Road, Yu Jia Pu Financial District, Binhai New District, Tianjin 300450, China",
       "city": "Tianjin",
@@ -1568,7 +1568,7 @@
       "longitude": 117.679605
    },
    {
-      "code": "J12",
+      "id": "J12",
       "name": "Jingumae Tower Building L12",
       "address": "Level 12, Jingumae Tower Building,1-5-8 Jingumae Shibuya-ku,Tokyo 150-0001",
       "city": "Tokyo",
@@ -1582,7 +1582,7 @@
       "longitude": 139.70798
    },
    {
-      "code": "J13",
+      "id": "J13",
       "name": "Jingumae Tower Building L13",
       "address": "Level 13, Jingumae Tower Building,1-5-8 Jingumae Shibuya-ku,Tokyo 150-0001",
       "city": "Tokyo",
@@ -1596,7 +1596,7 @@
       "longitude": 139.70798
    },
    {
-      "code": "AIA",
+      "id": "AIA",
       "name": "AIA Tower",
       "address": "Level 20, AIA Tower, 251A-301 Avenida Commercial De Macau, Macau",
       "city": "Macau",
@@ -1610,7 +1610,7 @@
       "longitude": 113.540183
    },
    {
-      "code": "J14",
+      "id": "J14",
       "name": "Jingumae Tower Building L14",
       "address": "Level 14, Jingumae Tower Building,1-5-8 Jingumae Shibuya-ku,Tokyo 150-0001",
       "city": "Tokyo",
@@ -1624,7 +1624,7 @@
       "longitude": 139.70798
    },
    {
-      "code": "RNT",
+      "id": "RNT",
       "name": "Roppongi Hills North Tower",
       "address": "Level 17, Roppongi Hills North Tower, 6-2-31 Roppongi, Minato-ku, Tokyo, Japan 106-0032",
       "city": "Tokyo",
@@ -1638,7 +1638,7 @@
       "longitude": 139.730237
    },
    {
-      "code": "HR1",
+      "id": "HR1",
       "name": "HKRI Taikoo Hui Center I",
       "address": "Level 20, HKRI Taikoo Hui Center I, 288 Shimen Yi Road, Jing'an District, Shanghai, China 200041",
       "city": "Shanghai",
@@ -1652,7 +1652,7 @@
       "longitude": 121.462304
    },
    {
-      "code": "SPT",
+      "id": "SPT",
       "name": "Sanno Park Tower",
       "address": "Level 3, Sanno Park Tower, 2-11-1 Nagata-cho, Chiyoda-ku, Tokyo, Japan",
       "city": "Tokyo",
@@ -1666,7 +1666,7 @@
       "longitude": 139.740361
    },
    {
-      "code": "SMC",
+      "id": "SMC",
       "name": "Shin Marunouchi Centre",
       "address": "Level 21, Shin-Marunouchi Center Building, 1-6-2 Marunouchi, Chiyoda-ku, Tokyo, Japan 100-0005",
       "city": "Tokyo",
@@ -1680,7 +1680,7 @@
       "longitude": 139.766425
    },
    {
-      "code": "MMC",
+      "id": "MMC",
       "name": "Minato Mirai Center Building",
       "address": "Level 19, Minato Mirai Center Building, 3-6-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa 220-0012, Japan",
       "city": "Yokohama",
@@ -1694,7 +1694,7 @@
       "longitude": 139.633881
    },
    {
-      "code": "HR2",
+      "id": "HR2",
       "name": "HKRI Taikoo Hui Center 2",
       "address": "Level 20, HKRI Taikoo Hui Center II, 288 Shimen Yi Road, Jing'an District, Shanghai, China 200041",
       "city": "Shanghai",
@@ -1708,7 +1708,7 @@
       "longitude": 121.462734
    },
    {
-      "code": "FEP",
+      "id": "FEP",
       "name": "Far Eastern Plaza",
       "address": "Level 16, Far Eastern Plaza, No. 207, Section 2, Dun Hua South Road, Taipei 106, Taiwan",
       "city": "Taipei",
@@ -1722,7 +1722,7 @@
       "longitude": 121.549339
    },
    {
-      "code": "DCP",
+      "id": "DCP",
       "name": "DLF Cyber Park",
       "address": "Level 9, DLF Cyber Park, Tower C, Sector 20, Gurgaon - 122001, India",
       "city": "Gurgaon",
@@ -1736,7 +1736,7 @@
       "longitude": 77.090531
    },
    {
-      "code": "MIR",
+      "id": "MIR",
       "name": "Mirae Asset Shanghai Centre",
       "address": "Level 20, Mirae Asset Tower, 166 Lujiazui Ring Road, Pudong Xinqu, Shanghai, China 200120",
       "city": "Shanghai",
@@ -1750,7 +1750,7 @@
       "longitude": 121.500437
    },
    {
-      "code": "BE8",
+      "id": "BE8",
       "name": "BEA Finance Tower L8",
       "address": "Level 8, BEA Finance Tower, 66 Huayuan Shiqiao Road, Pudong District, Shanghai 200120, Peopleâs Republic of China",
       "city": "Shanghai",
@@ -1764,7 +1764,7 @@
       "longitude": 121.502379
    },
    {
-      "code": "IFS",
+      "id": "IFS",
       "name": "Two International Finance Centre",
       "address": "Level 22, Two International Finance Centre, 10 Gukjegeumyung-ro, Yeoungdeungpo-gu, Seoul 07326, South Korea",
       "city": "Seoul",
@@ -1778,7 +1778,7 @@
       "longitude": 126.924731
    },
    {
-      "code": "SA2",
+      "id": "SA2",
       "name": "Safina Towers L2",
       "address": "Level 2, Safina Towers Pvt. Ltd., 3, Ali Asker Road, Banaglore 560052, India",
       "city": "Bangalore",
@@ -1792,7 +1792,7 @@
       "longitude": 77.591098
    },
    {
-      "code": "SGT",
+      "id": "SGT",
       "name": "Seoul Glass Tower",
       "address": "Level 20, Glass Tower, 534 Teheran-ro, Gangnam-gu, Seoul Korea 06181",
       "city": "Seoul",
@@ -1806,7 +1806,7 @@
       "longitude": 127.062816
    },
    {
-      "code": "KAM",
+      "id": "KAM",
       "name": "Kaman Amaryllis",
       "address": "Level 1, 2 & 3 139/26-1 Internal Ring Road, Outside Embassy Golf Link, Amarjyoti Layout, Domlur, Bangalore 560071",
       "city": "Bangalore",
@@ -1820,7 +1820,7 @@
       "longitude": 77.643143
    },
    {
-      "code": "DLF",
+      "id": "DLF",
       "name": "DLF Centre",
       "address": "Level 3B, DLF Centre, Sansad Marg, Connaught Place, New Delhi - 110001, India",
       "city": "New Delhi",
@@ -1834,7 +1834,7 @@
       "longitude": 77.21726
    },
    {
-      "code": "DL2",
+      "id": "DL2",
       "name": "DLF Centre L8",
       "address": "Level 8, DLF Centre, Sansad Marg, Connaught Place, New Delhi - 110001, India",
       "city": "New Delhi",
@@ -1848,7 +1848,7 @@
       "longitude": 77.21726
    },
    {
-      "code": "1C3",
+      "id": "1C3",
       "name": "One Central Building 3",
       "address": "Level 3, Building C3, One Central, DWTC, Sheikh Zayed Road, PO Box 9573, Dubai, UAE",
       "city": "Dubai",
@@ -1862,7 +1862,7 @@
       "longitude": 55.288925
    },
    {
-      "code": "CAC",
+      "id": "CAC",
       "name": "corporate Avenue Centre",
       "address": "Level 25, No. 8 Building Corporate Avenue, No. 01 Hua Sheng Road, Yuzhong District, 400001 Chongqing, China",
       "city": "Chongqing",
@@ -1876,7 +1876,7 @@
       "longitude": 106.51761
    },
    {
-      "code": "MOP",
+      "id": "MOP",
       "name": "Metropolitan Oriental Plaza",
       "address": "37th Floor,Metropolitan Oriental Plaza,No. 68, Zourong Rd, Yuzhong District, Chongqing, China, 400010",
       "city": "Chongqing",
@@ -1890,7 +1890,7 @@
       "longitude": 106.579004
    },
    {
-      "code": "SKC",
+      "id": "SKC",
       "name": "Salarpuria Sattva Knowledge City",
       "address": "Level 1, Unit 2, Sy. No. 83/1, Plot no 2, Inorbit Mall Road, Raidurg Village, HiTech City, Hyderabad â 500081, India",
       "city": "Hyderabad",
@@ -1904,7 +1904,7 @@
       "longitude": 78.381413
    },
    {
-      "code": "SK2",
+      "id": "SK2",
       "name": "Salarpuria Sattva Knowledge City L7",
       "address": "Level 7, Octave 3, Salarpuria Sattva Knowledge City, Sy. No. 83/1, Plot No. 2, Inorbit Mall Road, Raidurg Village, Hitech City,  Hyderabad",
       "city": "Hyderabad",

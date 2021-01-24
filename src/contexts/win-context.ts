@@ -1,6 +1,6 @@
 
 import React from "react"
-import querystring from "querystring"
+// import querystring from "querystring"
 
 type WinState = {
    winWidth: number | null
@@ -22,10 +22,10 @@ type WinResizeAction = {
    payload: { winWidth: number; winHeight: number }
 }
 
-type WinHashChangeAction = {
-   type: `HASH_CHANGE`
-   payload: {[key: string]: string | string[]}
-}
+// type WinHashChangeAction = {
+//    type: `HASH_CHANGE`
+//    payload: {[key: string]: string | string[]}
+// }
 
 type WinUpdateHashAction = {
    type: `UPDATE_HASH`
@@ -35,7 +35,7 @@ type WinUpdateHashAction = {
 type WinAction =
    | WinInitializeAction
    | WinResizeAction
-   | WinHashChangeAction
+   // | WinHashChangeAction
    | WinUpdateHashAction
 
 function winReducer(state: WinState, action: WinAction): WinState {
@@ -49,15 +49,16 @@ function winReducer(state: WinState, action: WinAction): WinState {
          }
          return state
       }
-      case `HASH_CHANGE`: {
-         if (state.hash !== action.payload) {
-            return Object.assign({}, state, { hash: action.payload })
-         }
-         return state
-      }
+      // case `HASH_CHANGE`: {
+      //    if (state.hash !== action.payload) {
+      //       return Object.assign({}, state, { hash: action.payload })
+      //    }
+      //    return state
+      // }
       case `UPDATE_HASH`: {
          const newHash = Object.assign({}, state.hash, action.payload)
-         window.location.hash = querystring.stringify(newHash)
+         // window.location.hash = querystring.stringify(newHash)
+         history.pushState(action.payload, action.payload.h as string, `/tec/${action.payload.h}`)
          return Object.assign({}, state, { hash: newHash })
       }
       default: {
@@ -76,6 +77,7 @@ const initWinState: WinState = {
    winHeight: null,
    hash: {},
 }
+
 const WinContext = React.createContext<ContextType>({
    state: initWinState,
    dispatch: (action: WinAction) => {},

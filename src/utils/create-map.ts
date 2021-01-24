@@ -62,7 +62,8 @@ async function createMap(element: HTMLElement, centreGeoJSON: GeoJSON.FeatureCol
       maxZoom: 18,
 
       /** stylesheet location */
-      style: `mapbox://styles/mapbox/streets-v11`,
+      // style: `mapbox://styles/mapbox/streets-v11`,
+      style: `mapbox://styles/mapbox/satellite-streets-v11`,
       // keyboard: false,
    })
 
@@ -169,16 +170,16 @@ function addSources(map: mapboxgl.Map, centreGeoJSON: GeoJSON.FeatureCollection<
             ],
             [`get`, `city`],
          ],
-         codes: [
+         ids: [
             [
                `case`,
-               [`in`, [`get`, `codes`], [`accumulated`]],
+               [`in`, [`get`, `ids`], [`accumulated`]],
                [`accumulated`],
                [`==`, [`accumulated`], ``],
-               [`get`, `codes`],
-               [`concat`, [`accumulated`], `\n`, [`get`, `codes`]],
+               [`get`, `ids`],
+               [`concat`, [`accumulated`], `\n`, [`get`, `ids`]],
             ],
-            [`get`, `code`],
+            [`get`, `id`],
          ],
          usedSum: [`+`, [`get`, `used`]],
          totalSum: [`+`, [`get`, `total`]],
@@ -218,7 +219,7 @@ function addLayers(map: mapboxgl.Map) {
          "text-size": 10,
       },
       paint: {
-         "icon-opacity": 0.8,
+         "icon-opacity": 1,
          "text-translate": [0, 10],
          "text-color": `#002E5D`,
          "text-opacity": 0.8,
@@ -247,6 +248,9 @@ function addLayers(map: mapboxgl.Map) {
          "circle-color": `#002E5D`,
          "circle-radius": 10,
          "circle-opacity": 0.5,
+         "circle-stroke-color": `#ffffff`,
+         "circle-stroke-width": 0.7,
+         "circle-stroke-opacity": 1,
       },
    })
 
@@ -325,9 +329,9 @@ function addEvents(map: mapboxgl.Map, centreGeoJSON: GeoJSON.FeatureCollection<G
             }, null)
             map.fitBounds(bbox, getFitBoundsOptions(map))
          })
-      } else if (featureProperties?.code) {
-         const { code } = featureProperties
-         const coordinates = centreGeoJSON.features?.filter(f => f.properties.code == code)?.map(f => f.geometry.coordinates)[0]
+      } else if (featureProperties?.id) {
+         const { id } = featureProperties
+         const coordinates = centreGeoJSON.features?.filter(f => f.properties.id == id)?.map(f => f.geometry.coordinates)[0]
          if (coordinates) {
             const [x, y] = coordinates
             map.fitBounds([x, y, x, y], getFitBoundsOptions(map))
@@ -409,16 +413,16 @@ function localGeocoder(centreGeoJSON: GeoJSON.FeatureCollection<GeoJSON.Point, C
          includeScore: true,
          includeMatches: true,
          findAllMatches: true,
-         keys: [`properties.code`, `properties.name`, `properties.address`, `properties.city`, `properties.region`],
+         keys: [`properties.id`, `properties.name`, `properties.address`, `properties.city`, `properties.region`],
       }
       const fuse = new Fuse(centreGeoJSON.features, options)
 
       const matchingFeatures = fuse.search(query).map(({ item, matches, score }) => ({
-         id: `place.${item.properties.code}`,
+         id: `place.${item.properties.id}`,
          type: `Feature`,
          place_type: [`place`],
          relevance: score,
-         place_name: `${item.properties.name} (${item.properties.code})`,
+         place_name: `${item.properties.name} (${item.properties.id})`,
          center: item.geometry.coordinates,
       }))
       return matchingFeatures

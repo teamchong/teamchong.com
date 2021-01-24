@@ -10,18 +10,18 @@ import "mapbox-gl/dist/mapbox-gl.css"
 import { TecMap } from "../components/tec-map"
 // import html2canvas from "html2canvas"
 
-declare global {
-   var handTrack: any
-}
+// declare global {
+//    var handTrack: any
+// }
 
 let cursorEv: MouseEvent
 
-function initializeState(allCentresJson: { edges: Array<{ node: CentreNode }> }): MapState {
-   const centreGeoJSON = getCentreGeoJSON(allCentresJson)
+function initializeState(allCentreJson: { edges: Array<{ node: CentreNode }> }): MapState {
+   const centreGeoJSON = getCentreGeoJSON(allCentreJson)
 
    return Object.assign(initMapState, {
       centreGeoJSON,
-      centreGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.code?.toLowerCase() ?? ``),
+      centreGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.id?.toLowerCase() ?? ``),
       regionGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.region?.toLowerCase() ?? ``),
       cityGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.city?.toLowerCase() ?? ``),
    })
@@ -31,7 +31,7 @@ type Props = {
    site: {
       buildTime: string
    }
-   allCentresJson: {
+   allCentreJson: {
       edges: Array<{ node: CentreNode }>
    }
 }
@@ -262,8 +262,8 @@ const Scene = loadable(
       })
 )
 
-const ArPage: React.FC<PageProps<Props>> = ({ data: { site, allCentresJson }, path }) => {
-   const [mapState, mapDispatch] = React.useReducer(mapReducer, allCentresJson, initializeState)
+const ArPage: React.FC<PageProps<Props>> = ({ data: { site, allCentreJson }, path }) => {
+   const [mapState, mapDispatch] = React.useReducer(mapReducer, allCentreJson, initializeState)
    const mapRef = React.useRef<HTMLDivElement>(null)
 
    React.useEffect(() => {
@@ -328,10 +328,10 @@ export const query = graphql`
       site {
          buildTime(formatString: "YYYY-MM-DD hh:mm a z")
       }
-      allCentresJson {
+      allCentreJson {
          edges {
             node {
-               code
+               id
                name
                address
                city

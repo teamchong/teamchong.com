@@ -52,7 +52,7 @@ function featurebarReducer(state: FeaturebarState, action: FeaturebarAction): Fe
                collapsed: false,
                lastToggleTime,
                selected: action.payload,
-               highlighted: action.payload[0]?.properties?.code?.toLowerCase() ?? null,
+               highlighted: action.payload[0]?.properties?.id?.toLowerCase() ?? null,
                next: DELAY,
                nextTimeout: 0,
             })

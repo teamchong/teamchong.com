@@ -1,5 +1,5 @@
 type CentreGeoJsonProperties = GeoJSON.GeoJsonProperties & {
-   code: string
+   id: string
    name: string
    address: string
    city: string
@@ -19,7 +19,7 @@ type CentreGeoJsonProperties = GeoJSON.GeoJsonProperties & {
 // }
 
 type CentreNode = {
-   code: string
+   id: string
    name: string
    address: string
    city: string

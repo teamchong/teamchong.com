@@ -26,11 +26,11 @@ function refreshHref(
       let clusteredCount: number = 0
       let countriesCount: { [country: string]: number } = {}
       let citiesCount: { [city: string]: number } = {}
-      let codesCount: { [code: string]: number } = {}
+      let idsCount: { [id: string]: number } = {}
       for (const {
-         properties: { countries, country, cities, city, codes, code },
+         properties: { countries, country, cities, city, ids, id },
       } of renderedFeatures) {
-         if (!code) clusteredCount++
+         if (!id) clusteredCount++
          if (country) {
             countriesCount[country] = (countriesCount[country] ?? 0) + 1
          } else {
@@ -45,23 +45,23 @@ function refreshHref(
                citiesCount[c] = (citiesCount[c] ?? 0) + 1
             })
          }
-         if (code) {
-            codesCount[code] = (codesCount[code] ?? 0) + 1
+         if (id) {
+            idsCount[id] = (idsCount[id] ?? 0) + 1
          } else {
-            codes?.split(/\n/g).forEach(c => {
-               codesCount[c] = (codesCount[c] ?? 0) + 1
+            ids?.split(/\n/g).forEach(c => {
+               idsCount[c] = (idsCount[c] ?? 0) + 1
             })
          }
       }
-      // console.log({ featureCount, clusteredCount, countriesCount, citiesCount, codesCount, renderedFeatures })
-      if (Object.keys(codesCount).length === 1) {
-         newHref = Object.keys(codesCount)[0].toLowerCase()
+      // console.log({ featureCount, clusteredCount, countriesCount, citiesCount, idsCount, renderedFeatures })
+      if (Object.keys(idsCount).length === 1) {
+         newHref = Object.keys(idsCount)[0].toLowerCase()
       } else if (Object.keys(citiesCount).length === 1) {
          newHref = Object.keys(citiesCount)[0].toLowerCase()
       } else if (Object.keys(countriesCount).length === 1) {
          newHref = Object.keys(countriesCount)[0].toLowerCase()
-      } else if (Object.keys(codesCount).length === 1) {
-         newHref = Object.keys(codesCount)[0].toLowerCase()
+      } else if (Object.keys(idsCount).length === 1) {
+         newHref = Object.keys(idsCount)[0].toLowerCase()
       }
       if ((href ?? ``) !== newHref) {
          winDispatch({ type: `UPDATE_HASH`, payload: { h: newHref } })
@@ -151,6 +151,7 @@ const TecMap = React.forwardRef<HTMLDivElement, Props>(({ children }, mapRef: Re
       state: { hash, winHeight, winWidth },
       dispatch: winDispatch,
    } = React.useContext(WinContext)
+   console.log({init1:hash})
    const { state: mapState, dispatch: mapDispatch } = React.useContext(MapContext)
    const { map, centreGeoJSON, centreGeoJSONLookup, cityGeoJSONLookup, regionGeoJSONLookup, bounds, zoom, renderedFeatures, moveTo, videoId } = mapState
 

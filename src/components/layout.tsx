@@ -50,7 +50,8 @@ type Props = {
 
 function getHash() {
    try {
-      return querystring.parse(window.location.hash?.replace(/^#/, ``))
+      // return querystring.parse(window.location.hash?.replace(/^#/, ``))
+      return {h:window.location.pathname.replace(/^\/tec\//, '')}
    } catch (error) {
       return {}
    }
@@ -66,8 +67,8 @@ const Layout: React.FC<Props> = ({ children }) => {
    //       }
    //    }
    // `)
-   const [winState, winDispatch] = React.useReducer(winReducer, { winWidth: null, winHeight: null, hash: {} })
-
+   const [winState, winDispatch] = React.useReducer(winReducer, { winWidth: null, winHeight: null, hash: {h:window.location.pathname.replace(/^\/tec\//, '')} })
+   
    React.useEffect(() => {
       winDispatch({ type: `INITIALIZE`, payload: { winWidth: window.innerWidth, winHeight: window.innerHeight, hash: getHash() } })
       window.addEventListener(`resize`, () =>
@@ -76,9 +77,9 @@ const Layout: React.FC<Props> = ({ children }) => {
       window.addEventListener(`orientationchange`, () =>
          winDispatch({ type: `RESIZE`, payload: { winWidth: window.innerWidth, winHeight: window.innerHeight } })
       )
-      window.addEventListener(`hashchange`, (ev) => {
-         winDispatch({ type: `HASH_CHANGE`, payload: getHash() })
-      })
+      // window.addEventListener(`hashchange`, (ev) => {
+      //    winDispatch({ type: `HASH_CHANGE`, payload: getHash() })
+      // })
    }, [])
 
    return (

@@ -37,9 +37,9 @@ const featurebarToggleStyle: React.CSSProperties = {
    justifyContent: `center`,
    alignItems: `center`,
    color: `rgb(0, 18, 36, 0.5)`,
-   background: `rgba(255, 255, 255, 0.1)`,
+   background: `rgba(255, 255, 255, 0.5)`,
    borderRadius: `100%`,
-   border: `1px solid rgba(0, 0, 0, 0.1)`,
+   border: `1px solid rgba(0, 0, 0, 0.5)`,
    boxShadow: `0 0 5px -2.5px #000`,
    cursor: `pointer`,
    zIndex: 7,
@@ -201,11 +201,11 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
    }
 
    function autoPlayNext() {
-      const idx = selected.findIndex(({ properties: { code } }) => code?.toLowerCase() == highlighted)
+      const idx = selected.findIndex(({ properties: { id } }) => id?.toLowerCase() == highlighted)
       const nextIdx = idx + 1 >= 0 && idx + 1 <= selected.length - 1 ? idx + 1 : 0
       const timeout = next ? setTimeout(() => {
          mapDispatch({ type: `RANDOM_VIDEO` })
-         featurebarDispatch({ type: `HIGHLIGHT`, payload: selected[nextIdx].properties.code.toLowerCase() })
+         featurebarDispatch({ type: `HIGHLIGHT`, payload: selected[nextIdx].properties.id.toLowerCase() })
       }, next) as any : 0
       featurebarDispatch({ type: `NEXT`, payload: timeout })
    }
@@ -225,19 +225,19 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
                   {!next && <Button fullwidth onClick={handleAutoPlay} style={{ marginTop: `1rem` }}>Auto play</Button>}
                   {Object.values(
                      selected.reduce<{ [key: string]: GeoJSON.Feature<GeoJSON.Point, CentreGeoJsonProperties> }>((centres, feature) => {
-                        if (feature.properties.code) {
-                           const key = feature.properties.code.toLowerCase()
+                        if (feature.properties.id) {
+                           const key = feature.properties.id.toLowerCase()
                            centres[key] = centreGeoJSONLookup[key].features[0]
                         } else {
-                           feature.properties.codes.split(/\n/g).forEach(code => {
-                              const key = code.toLowerCase()
+                           feature.properties.ids.split(/\n/g).forEach(id => {
+                              const key = id.toLowerCase()
                               centres[key] = centreGeoJSONLookup[key].features[0]
                            })
                         }
                         return centres
                      }, {})
                   ).map(feature => {
-                     const isHighlighted = feature.properties.code?.toLowerCase() === highlighted
+                     const isHighlighted = feature.properties.id?.toLowerCase() === highlighted
                      const highlightProps: React.HtmlHTMLAttributes<HTMLDivElement> & any = isHighlighted
                         ? {
                              domRef: highlightRef,
@@ -258,11 +258,11 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
                           }
                      // console.log({highlightProps})
                      return (
-                        <Card key={feature.properties.code} {...highlightProps}>
+                        <Card key={feature.properties.id} {...highlightProps}>
                            <Card.Header>
                               <Card.Header.Title>
                                  {feature.properties.name}
-                                 <Tag className="is-info tag-building">{feature.properties.code}</Tag>
+                                 <Tag className="is-info tag-building">{feature.properties.id}</Tag>
                               </Card.Header.Title>
                            </Card.Header>
                            <Card.Content>
@@ -270,7 +270,7 @@ const Featurebar: React.FC<FeaturebarProps> = ({}) => {
                            </Card.Content>
                            <Card.Footer>
                               {selected.length > 1 && 
-                              <Card.Footer.Item renderAs="a" onClick={() => featurebarDispatch({ type: `HIGHLIGHT`, payload: feature.properties?.code.toLowerCase() ?? null })}>
+                              <Card.Footer.Item renderAs="a" onClick={() => featurebarDispatch({ type: `HIGHLIGHT`, payload: feature.properties?.id.toLowerCase() ?? null })}>
                                  Select
                               </Card.Footer.Item>}
                               <Card.Footer.Item renderAs="a" href={`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}`} target="_blank">

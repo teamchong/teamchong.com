@@ -100,11 +100,11 @@ function getFlag(key: string, defaultValue: string = `🌐`) {
 function renderItems(href: string, centreGeoJSONLookup: GeoJSONLookup, cityGeoJSONLookup: GeoJSONLookup, regionGeoJSONLookup: GeoJSONLookup) {
    const items: Array<React.ReactNode> = []
    if (cityGeoJSONLookup[href]) {
-      cityGeoJSONLookup[href].features.forEach(({ properties: { code, name } }) => {
+      cityGeoJSONLookup[href].features.forEach(({ properties: { id, name } }) => {
          items.push(
-            <Dropdown.Item key={code.toLowerCase()} value={code.toLowerCase()}>
+            <Dropdown.Item key={id.toLowerCase()} value={id.toLowerCase()}>
                {name}
-               {<Tag className="is-info tag-building">{code}</Tag>}
+               {<Tag className="is-info tag-building">{id}</Tag>}
             </Dropdown.Item>
          )
       })
@@ -159,14 +159,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({}) => {
    const breadcrumbItems: Array<{ name: string; url: string; active?: boolean }> = [{ name: `Home`, url: `home` }]
    const href = String(hash.h ?? ``)
    if (centreGeoJSONLookup[href]) {
-      const { region, city, name, code } = centreGeoJSONLookup[href].features[0].properties
+      const { region, city, name, id } = centreGeoJSONLookup[href].features[0].properties
       if (region !== city) {
          breadcrumbItems.push({ name: region, url: region.toLowerCase() })
       }
       if (Object.keys(cityGeoJSONLookup).length > 1) {
          breadcrumbItems.push({ name: city, url: city.toLowerCase() })
       }
-      breadcrumbItems.push({ name, url: code.toLowerCase() })
+      breadcrumbItems.push({ name, url: id.toLowerCase() })
    } else if (cityGeoJSONLookup[href]) {
       const { region, city } = cityGeoJSONLookup[href].features[0].properties
       if (region !== city) {

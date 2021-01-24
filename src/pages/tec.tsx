@@ -7,12 +7,12 @@ import { getCentreGeoJSON, toGeoJSONLookup } from "../utils/map-functions"
 import { CentreNode } from "../utils/map-types"
 import { TecMap } from "../components/tec-map"
 
-function initializeState(allCentresJson: { edges: Array<{ node: CentreNode }> }): MapState {
-   const centreGeoJSON = getCentreGeoJSON(allCentresJson)
+function initializeState(allCentreJson: { edges: Array<{ node: CentreNode }> }): MapState {
+   const centreGeoJSON = getCentreGeoJSON(allCentreJson)
 
    return Object.assign(initMapState, {
       centreGeoJSON,
-      centreGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.code?.toLowerCase() ?? ``),
+      centreGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.id?.toLowerCase() ?? ``),
       regionGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.region?.toLowerCase() ?? ``),
       cityGeoJSONLookup: toGeoJSONLookup(centreGeoJSON, ({ properties }) => properties.city?.toLowerCase() ?? ``),
    })
@@ -22,13 +22,13 @@ type Props = {
    site: {
       buildTime: string
    }
-   allCentresJson: {
+   allCentreJson: {
       edges: Array<{ node: CentreNode }>
    }
 }
 
-const TecPage: React.FC<PageProps<Props>> = ({ data: { site, allCentresJson }, path }) => {
-   const [mapState, mapDispatch] = React.useReducer(mapReducer, allCentresJson, initializeState)
+const TecPage: React.FC<PageProps<Props>> = ({ data: { site, allCentreJson }, path }) => {
+   const [mapState, mapDispatch] = React.useReducer(mapReducer, allCentreJson, initializeState)
    const mapRef = React.useRef<HTMLDivElement>(null)
 
    return (
@@ -51,10 +51,10 @@ export const query = graphql`
       site {
          buildTime(formatString: "YYYY-MM-DD hh:mm a z")
       }
-      allCentresJson {
+      allCentreJson {
          edges {
             node {
-               code
+               id
                name
                address
                city

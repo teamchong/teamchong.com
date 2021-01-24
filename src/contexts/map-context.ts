@@ -108,12 +108,12 @@ function mapReducer(state: MapState, action: MapAction): MapState {
 function getRenderedCentres(renderedFeatures: Array<mapboxgl.MapboxGeoJSONFeature>, centreGeoJSONLookup: GeoJSONLookup) {
    return Object.values(
       renderedFeatures.reduce<{ [key: string]: GeoJSON.Feature<GeoJSON.Point, CentreGeoJsonProperties> }>((centres, feature) => {
-         if (feature.properties.code) {
-            const key = feature.properties.code.toLowerCase()
+         if (feature.properties.id) {
+            const key = feature.properties.id.toLowerCase()
             centres[key] = centreGeoJSONLookup[key].features[0]
          } else {
-            feature.properties.codes.split(/\n/g).forEach(code => {
-               const key = code.toLowerCase()
+            feature.properties.ids.split(/\n/g).forEach(id => {
+               const key = id.toLowerCase()
                centres[key] = centreGeoJSONLookup[key].features[0]
             })
          }

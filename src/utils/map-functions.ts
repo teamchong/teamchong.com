@@ -14,7 +14,7 @@ function getCentreGeoJSON(source: { edges: { node: CentreNode }[] }): GeoJSON.Fe
       (
          {
             node: {
-               code,
+               id,
                name,
                address,
                city,
@@ -38,7 +38,7 @@ function getCentreGeoJSON(source: { edges: { node: CentreNode }[] }): GeoJSON.Fe
                coordinates: [longitude, latitude],
             },
             properties: {
-               code,
+               id,
                name,
                address,
                city,

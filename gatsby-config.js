@@ -54,7 +54,8 @@ module.exports = {
             name: `json_data`,
             path: `${__dirname}/src/data`,
          },
-      }, // this (optional) plugin enables Progressive Web App + Offline functionality
+      },
+      // this (optional) plugin enables Progressive Web App + Offline functionality
       "gatsby-plugin-fontawesome-css",
       // To learn more, visit: https://gatsby.dev/offline
       {
