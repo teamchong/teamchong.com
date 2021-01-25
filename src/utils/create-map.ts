@@ -69,7 +69,7 @@ async function createMap(element: HTMLElement, centreGeoJSON: GeoJSON.FeatureCol
 
    map.scrollZoom.setWheelZoomRate(1 / 300)
    map.scrollZoom.setZoomRate(1 / 50)
-   await new Promise<mapboxgl.Map>((resolve, reject) => {
+   await new Promise<void>((resolve, reject) => {
       map.on(`style.load`, () => {
          initializeMap(map, centreGeoJSON, resolve, reject)
       })

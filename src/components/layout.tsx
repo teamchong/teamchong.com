@@ -42,7 +42,7 @@ library.add(
    faWhatsappSquare,
    faSkype
 )
-import querystring from "querystring"
+// import querystring from "querystring"
 
 type Props = {
    children: React.ReactNode
@@ -51,7 +51,7 @@ type Props = {
 function getHash() {
    try {
       // return querystring.parse(window.location.hash?.replace(/^#/, ``))
-      return {h:window.location.pathname.replace(/^\/tec\//, '')}
+      return { h: decodeURIComponent(window.location.pathname.replace(/^\/tec\//, '')) }
    } catch (error) {
       return {}
    }

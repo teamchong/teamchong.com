@@ -6,6 +6,7 @@
 
 // You can delete this file if you're not using it
 
+const { graphql } = require("gatsby")
 const path = require(`path`)
 const fs = require(`fs`)
 let roomNodes = {}
@@ -65,7 +66,7 @@ exports.onPostBuild = ({ reporter }) => {
    reporter.info(`Your Gatsby site has been built!`)
 }
 // // Create blog pages dynamically
-exports.onCreatePage = async ({ page, actions, graphql }) => {
+exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
   // console.log(page)
   if (page && page.path && /^\/tec\//.test(page.path)) {
@@ -75,8 +76,10 @@ exports.onCreatePage = async ({ page, actions, graphql }) => {
         component: path.resolve('src/pages/tec.tsx')
      })
   }
+}
 
 //   const result = await graphql(`
+// query {
 // allRoomJson {
 //    edges {
 //       node {
@@ -108,17 +111,22 @@ exports.onCreatePage = async ({ page, actions, graphql }) => {
 //       }
 //    }
 // }
-//   `)
+// }
+//   `)lly
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
   const result = await graphql(`
-allCentreJson {
-   edges {
-      node {
-         id
+query {
+   allCentreJson {
+      edges {
+         node {
+            id
+         }
       }
    }
 }
   `)
-  result.data.allRoomJson.edges.forEach(({ node: { id } }) => {
+  result.data.allCentreJson.edges.forEach(({ node: { id } }) => {
     createPage({
       path: `/tec-centre/${id}/`,
       matchPath: `/tec-centre/${id}/*`,

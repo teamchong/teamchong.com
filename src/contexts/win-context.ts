@@ -58,7 +58,8 @@ function winReducer(state: WinState, action: WinAction): WinState {
       case `UPDATE_HASH`: {
          const newHash = Object.assign({}, state.hash, action.payload)
          // window.location.hash = querystring.stringify(newHash)
-         history.pushState(action.payload, action.payload.h as string, `/tec/${action.payload.h}`)
+         history.pushState(action.payload, action.payload.h as string, `/tec/${encodeURIComponent(action.payload.h)}`)
+         console.log({newHash})
          return Object.assign({}, state, { hash: newHash })
       }
       default: {

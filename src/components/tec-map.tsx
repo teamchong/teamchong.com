@@ -21,16 +21,16 @@ function refreshHref(
    winDispatch: (action: WinAction) => void
 ) {
    return () => {
-      if (!href || !bounds || movingTo) return
+      if (!bounds || movingTo) return
       let newHref: string = ``
-      let clusteredCount: number = 0
+      // let clusteredCount: number = 0
       let countriesCount: { [country: string]: number } = {}
       let citiesCount: { [city: string]: number } = {}
       let idsCount: { [id: string]: number } = {}
       for (const {
          properties: { countries, country, cities, city, ids, id },
       } of renderedFeatures) {
-         if (!id) clusteredCount++
+         // if (!id) clusteredCount++
          if (country) {
             countriesCount[country] = (countriesCount[country] ?? 0) + 1
          } else {
@@ -101,7 +101,7 @@ function initializeMap(
    mapDispatch: (action: MapAction) => void,
    mapRef: React.MutableRefObject<HTMLDivElement>,
    centreGeoJSON: GeoJSON.FeatureCollection<GeoJSON.Point, CentreGeoJsonProperties>,
-   hash: { [key: string]: string | string[] } | null
+   // hash: { [key: string]: string | string[] } | null
 ) {
    return () => {
       async function run() {
@@ -136,13 +136,23 @@ function initializeMap(
                renderedFeatures: map.queryRenderedFeatures({ layers: [`clusters`] } as any),
             },
          })
-         if (hash?.h) {
-            mapDispatch({ type: `MOVE`, payload: String(hash?.h ?? ``).toLowerCase() })
-         } else {
-            mapDispatch({ type: `MOVE`, payload: `home` })
-         }
       }
       run()
+   }
+}
+
+function startMap(
+   mapDispatch: (action: MapAction) => void,
+   hash: { [key: string]: string | string[] } | null,
+) {
+   return () => {
+      if (!hash) return
+      debugger;
+      if (hash.h) {
+         mapDispatch({ type: `MOVE`, payload: String(hash.h ?? ``).toLowerCase() })
+      } else {
+         mapDispatch({ type: `MOVE`, payload: `home` })
+      }
    }
 }
 
@@ -157,7 +167,9 @@ const TecMap = React.forwardRef<HTMLDivElement, Props>(({ children }, mapRef: Re
 
    if (!mapRef) mapRef = useRef<HTMLDivElement>(null)
 
-   React.useEffect(initializeMap(mapDispatch, mapRef, centreGeoJSON, hash), [])
+   // React.useEffect(initializeMap(mapDispatch, mapRef, centreGeoJSON, hash))
+   React.useEffect(initializeMap(mapDispatch, mapRef, centreGeoJSON), [])
+   React.useEffect(startMap(mapDispatch, hash), [!!hash])
    React.useEffect(refreshHref(bounds, renderedFeatures, moveTo, hash?.h as string, winDispatch), [bounds, renderedFeatures, moveTo, hash?.h])
    React.useEffect(moveMapTo(map, centreGeoJSONLookup, cityGeoJSONLookup, regionGeoJSONLookup, centreGeoJSON, moveTo, mapDispatch), [
       map,
