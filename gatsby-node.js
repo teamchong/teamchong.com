@@ -6,16 +6,14 @@
 
 // You can delete this file if you're not using it
 
-const { graphql } = require("gatsby")
 const path = require(`path`)
 const fs = require(`fs`)
-let roomNodes = {}
 
 // Log out information after a build is done
 exports.sourceNodes = ({ actions, createContentDigest }) => {
    try {
       const { createNode } = actions
-      const rootPath = path.join(__dirname, "src", "images", "360")
+      const rootPath = path.join(__dirname, "static", "360")
       const images360 = fetchImages360(rootPath)
       // const webCentres = JSON.parse(fs.readFileSync(path.join(__dirname, 'webCentres.json'), {encoding: 'utf-8'}))
       const rooms = images360.map(transformNode)
@@ -34,7 +32,7 @@ exports.sourceNodes = ({ actions, createContentDigest }) => {
       console.error(error)
    }
 }
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = ({ node, getNodesByType, actions }) => {
    const { createNodeField } = actions
    // console.log(node)
    switch (node.internal.type) {
@@ -59,6 +57,16 @@ exports.onCreateNode = ({ node, actions }) => {
             node.url = `https://www.executivecentre.com/office-space/${node.url}/`
          }
          break
+      case "CentreJson":
+         const rooms = getNodesByType('RoomJson').filter(r => r.centreCode == node.id)
+         if (rooms.length) {
+            createNodeField({
+               node,
+               name: "rooms___NODE",
+               value: rooms.map(r => r.id)
+            })
+         }
+         break
    }
 }
 exports.onPostBuild = ({ reporter }) => {
@@ -77,42 +85,6 @@ exports.onCreatePage = async ({ page, actions }) => {
      })
   }
 }
-
-//   const result = await graphql(`
-// query {
-// allRoomJson {
-//    edges {
-//       node {
-//          centre
-//          city
-//          id
-//          market
-//          path
-//          file
-//          fields {
-//             website {
-//                url
-//             }
-//             centre {
-//                name
-//                phone
-//                region
-//                longitude
-//                latitude
-//                isComingSoon
-//                isActive
-//                id
-//                fax
-//                currencyCode
-//                city
-//                address
-//             }
-//          }
-//       }
-//    }
-// }
-// }
-//   `)lly
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
@@ -120,17 +92,83 @@ query {
    allCentreJson {
       edges {
          node {
+            address
+            city
+            currencyCode
+            fax
+            fields {
+               rooms {
+                  centre
+                  centreCode
+                  city
+                  fields {
+                     website {
+                        url
+                     }
+                  }
+                  file
+                  id
+                  market
+                  path
+               }
+            }
             id
+            isActive
+            isComingSoon
+            latitude
+            longitude
+            name
+            phone
+            region
          }
       }
    }
 }
   `)
-  result.data.allCentreJson.edges.forEach(({ node: { id } }) => {
+  console.log(result)
+  result.data.allCentreJson.edges.forEach(({ node: {
+      address,
+      city,
+      currencyCode,
+      fax,
+      fields,
+      id,
+      isActive,
+      isComingSoon,
+      latitude,
+      longitude,
+      name,
+      phone,
+      region
+  } }) => {
     createPage({
       path: `/tec-centre/${id}/`,
       matchPath: `/tec-centre/${id}/*`,
-      component: path.resolve('src/pages/tec-centre.tsx')
+      component: path.resolve('src/pages/tec-centre.tsx'),
+      context: {
+         address,
+         city,
+         currencyCode,
+         fax,
+         rooms: ((fields || {}).rooms || []).map(r => ({
+            centre: r.centre,
+            centreCode: r.centreCode,
+            city: r.city,
+            websiteUrl: ((r.fields || {}).website || {}).url,
+            file: r.file,
+            id: r.id,
+            market: r.market,
+            path: r.path
+         })),
+         id,
+         isActive,
+         isComingSoon,
+         latitude,
+         longitude,
+         name,
+         phone,
+         region
+      }
     })
   })
 }
@@ -246,4 +284,67 @@ const centreCodes = {
    "One Central": "1C3",
    "Friendship Tower": "FTR",
    "Saigon Centre Tower 1": "SC1",
+   "World Trade Center 2": "WT2",
+   "The Capital": "BKC",
+   "Kalpataru Synergy": "KPS",
+   "Capital Building 2": "BK2",
+   "Gangnam Finance Centre L4": "GF2",
+   "Shin Marunouchi Centre L20": "SM2",
+   "Business Bay": "PBB",
+   "Citic Square": "CIT",
+   "Chong Hing Finance Center": "CHF",
+   "Kerry Centre Hangzhou": "KHZ",
+   "Hyundai Motor Tower": "HMT",
+   "Beijing Yintai Centre L31": "YT2",
+   "Financial Street Centre": "FSP",
+   "Chengdu IFS": "CIF",
+   "Mfar Greenheart Manyata Tech Park": "MFR",
+   "World Trade Center": "WTC",
+   "Qutab Crescent Centre": "QTB",
+   "Prestige Khoday Tower": "KHO",
+   "Prestige Trade Tower": "PTT",
+   "K Wah Centre": "KWA",
+   "Maga One": "MG1",
+   "World Trade Center Colombo": "coL",
+   "Enterprise Headquarter Building": "EHQ",
+   "China Central Place L6": "CC2",
+   "Xintiandi": "XTD",
+   "RCBC Plaza": "RCB",
+   "Ocean Financial Centre L37": "OF2",
+   "HNA": "HNA",
+   "Jongno Tower": "JNT",
+   "Roppongi Hills North Tower L16": "RN2",
+   "28 Hennessy Road": "28H",
+   "One Horizon Center": "1HC",
+   "Tamarai Tech Park": "TTP",
+   "Prestige Palladium Chennai": "PPC",
+   "Northpoint Tower": "NPS",
+   "Prudential Tower": "PRU",
+   "Two Exchange Square": "EXC",
+   "Shui On Plaza": "SOP",
+   "K11 L8 Conference Centre": "K08",
+   "K11 L38": "K12",
+   "Three Pacific Place": "TPP",
+   "China World Office 1": "CWO",
+   "China Resources Building": "CRB",
+   "China World Office 2": "CW3",
+   "Hong Kong One IFC": "1FC",
+   "Tribe": "CRC",
+   "UB City": "UBC",
+   "Taipei Nanshan Plaza L37": "NA2",
+   "World Financial Centre": "WFC",
+   "TEDA MSD C1 Tower": "MSD",
+   "The Exchange Tower 2": "EXT",
+   "Innovative Financial Building": "YJP",
+   "Jingumae Tower Building L13": "J13",
+   "AIA Tower": "AIA",
+   "Jingumae Tower Building L14": "J14",
+   "HKRI Taikoo Hui Center I": "HR1",
+   "DLF Cyber Park": "DCP",
+   "BEA Finance Tower L8": "BE8",
+   "Safina Towers L2": "SA2",
+   "Kaman Amaryllis": "KAM",
+   "DLF Centre L8": "DL2",
+   "Metropolitan Oriental Plaza": "MOP",
+   "Salarpuria Sattva Knowledge City L7": "SK2"
 }

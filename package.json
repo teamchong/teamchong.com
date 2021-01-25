@@ -16,7 +16,7 @@
     "@mapbox/mapbox-gl-geocoder": "^4.7.0",
     "@turf/turf": "^5.1.6",
     "@types/aframe": "^1.0.1",
-    "aframe": "^1.0.4",
+    "aframe": "^1.1.0",
     "external-load": "^1.0.0",
     "fuse.js": "^6.4.1",
     "gatsby": "2.24.65",
