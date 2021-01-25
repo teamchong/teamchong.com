@@ -100,13 +100,13 @@ function moveMapTo(
 function initializeMap(
    mapDispatch: (action: MapAction) => void,
    mapRef: React.MutableRefObject<HTMLDivElement>,
-   centreGeoJSON: GeoJSON.FeatureCollection<GeoJSON.Point, CentreGeoJsonProperties>,
+   centreGeoJSON: GeoJSON.FeatureCollection<GeoJSON.Point, CentreGeoJsonProperties>
    // hash: { [key: string]: string | string[] } | null
 ) {
    return () => {
       async function run() {
          const { map, ...controls } = await createMap(mapRef.current, centreGeoJSON)
-         map.on(`move`, () =>
+         map.on(`render`, () => 
             mapDispatch({
                type: `MOVING`,
                payload: {
@@ -116,16 +116,26 @@ function initializeMap(
                },
             })
          )
-         map.on(`moveend`, () =>
-            mapDispatch({
-               type: `MOVING`,
-               payload: {
-                  bounds: map.getBounds(),
-                  zoom: map.getZoom(),
-                  renderedFeatures: map.queryRenderedFeatures({ layers: [`clusters`] } as any),
-               },
-            })
-         )
+         // map.on(`move`, () =>
+         //    mapDispatch({
+         //       type: `MOVING`,
+         //       payload: {
+         //          bounds: map.getBounds(),
+         //          zoom: map.getZoom(),
+         //          renderedFeatures: map.queryRenderedFeatures({ layers: [`clusters`] } as any),
+         //       },
+         //    })
+         // )
+         // map.on(`moveend`, () =>
+         //    mapDispatch({
+         //       type: `MOVING`,
+         //       payload: {
+         //          bounds: map.getBounds(),
+         //          zoom: map.getZoom(),
+         //          renderedFeatures: map.queryRenderedFeatures({ layers: [`clusters`] } as any),
+         //       },
+         //    })
+         // )
          mapDispatch({
             type: `MOUNT`,
             payload: {
@@ -141,13 +151,10 @@ function initializeMap(
    }
 }
 
-function startMap(
-   mapDispatch: (action: MapAction) => void,
-   hash: { [key: string]: string | string[] } | null,
-) {
+function startMap(mapDispatch: (action: MapAction) => void, hash: { [key: string]: string | string[] } | null) {
    return () => {
       if (!hash) return
-      debugger;
+      debugger
       if (hash.h) {
          mapDispatch({ type: `MOVE`, payload: String(hash.h ?? ``).toLowerCase() })
       } else {
@@ -163,7 +170,18 @@ const TecMap = React.forwardRef<HTMLDivElement, Props>(({ children }, mapRef: Re
    } = React.useContext(WinContext)
    // console.log({init1:hash})
    const { state: mapState, dispatch: mapDispatch } = React.useContext(MapContext)
-   const { map, centreGeoJSON, centreGeoJSONLookup, cityGeoJSONLookup, regionGeoJSONLookup, bounds, zoom, renderedFeatures, moveTo, videoId } = mapState
+   const {
+      map,
+      centreGeoJSON,
+      centreGeoJSONLookup,
+      cityGeoJSONLookup,
+      regionGeoJSONLookup,
+      bounds,
+      zoom,
+      renderedFeatures,
+      moveTo,
+      videoId,
+   } = mapState
 
    if (!mapRef) mapRef = useRef<HTMLDivElement>(null)
 
@@ -182,15 +200,15 @@ const TecMap = React.forwardRef<HTMLDivElement, Props>(({ children }, mapRef: Re
             <Featurebar />
             <Breadcrumb />
          </div>
-         {zoom >= 17 && winWidth >= 800 &&
+         {zoom >= 17 && winWidth >= 800 && (
             <iframe
                style={{
                   position: `absolute`,
                   zIndex: 3,
                   bottom: `1rem`,
                   right: `1rem`,
-                  width: winHeight >= 600 ?  `420px` : `280px`,
-                  height: winHeight >= 600 ?  `236.25px` : `157.5px`,
+                  width: winHeight >= 600 ? `420px` : `280px`,
+                  height: winHeight >= 600 ? `236.25px` : `157.5px`,
                   borderRadius: `20px`,
                   opacity: 0.9,
                   pointerEvents: `none`,
@@ -199,16 +217,20 @@ const TecMap = React.forwardRef<HTMLDivElement, Props>(({ children }, mapRef: Re
                frameBorder="0"
                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
-         }
-         <div style={{
-            position: `absolute`,
-            bottom: 0,
-            right: `1rem`,
-            textShadow: `1px 1px #fff`,
-            zIndex: 3
-         }}>
+         )}
+         <div
+            style={{
+               position: `absolute`,
+               bottom: 0,
+               right: `1rem`,
+               textShadow: `1px 1px #fff`,
+               zIndex: 3,
+            }}
+         >
             {children}
-            <a href="https://www.executivecentre.com/" target="_blank">The Executive Centre</a>
+            <a href="https://www.executivecentre.com/" target="_blank">
+               The Executive Centre
+            </a>
          </div>
       </>
    )

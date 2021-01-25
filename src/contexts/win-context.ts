@@ -1,11 +1,10 @@
-
 import React from "react"
 // import querystring from "querystring"
 
 type WinState = {
    winWidth: number | null
    winHeight: number | null
-   hash: {[key: string]: string | string[]}
+   hash: { [key: string]: string | string[] }
 }
 
 type WinInitializeAction = {
@@ -13,7 +12,7 @@ type WinInitializeAction = {
    payload: {
       winWidth: number
       winHeight: number
-      hash: {[key: string]: string | string[]}
+      hash: { [key: string]: string | string[] }
    }
 }
 
@@ -29,7 +28,7 @@ type WinResizeAction = {
 
 type WinUpdateHashAction = {
    type: `UPDATE_HASH`
-   payload: {[key: string]: string | string[]}
+   payload: { [key: string]: string | string[] }
 }
 
 type WinAction =
@@ -59,7 +58,7 @@ function winReducer(state: WinState, action: WinAction): WinState {
          const newHash = Object.assign({}, state.hash, action.payload)
          // window.location.hash = querystring.stringify(newHash)
          history.pushState(action.payload, action.payload.h as string, `/tec/${encodeURIComponent(action.payload.h)}`)
-         console.log({newHash})
+         // console.log({newHash})
          return Object.assign({}, state, { hash: newHash })
       }
       default: {
@@ -84,9 +83,4 @@ const WinContext = React.createContext<ContextType>({
    dispatch: (action: WinAction) => {},
 })
 
-export {
-   WinState,
-   WinAction,
-   winReducer,
-   WinContext,
-}
+export { WinState, WinAction, winReducer, WinContext }

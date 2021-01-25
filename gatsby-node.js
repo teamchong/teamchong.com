@@ -58,12 +58,12 @@ exports.onCreateNode = ({ node, getNodesByType, actions }) => {
          }
          break
       case "CentreJson":
-         const rooms = getNodesByType('RoomJson').filter(r => r.centreCode == node.id)
+         const rooms = getNodesByType("RoomJson").filter(r => r.centreCode == node.id)
          if (rooms.length) {
             createNodeField({
                node,
                name: "rooms___NODE",
-               value: rooms.map(r => r.id)
+               value: rooms.map(r => r.id),
             })
          }
          break
@@ -75,102 +75,90 @@ exports.onPostBuild = ({ reporter }) => {
 }
 // // Create blog pages dynamically
 exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions
-  // console.log(page)
-  if (page && page.path && /^\/tec\//.test(page.path)) {
-     createPage({
-        path: '/tec/',
-        matchPath: '/tec/*',
-        component: path.resolve('src/pages/tec.tsx')
-     })
-  }
-}
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const result = await graphql(`
-query {
-   allCentreJson {
-      edges {
-         node {
-            address
-            city
-            currencyCode
-            fax
-            fields {
-               rooms {
-                  centre
-                  centreCode
-                  city
-                  fields {
-                     website {
-                        url
-                     }
-                  }
-                  file
-                  id
-                  market
-                  path
-               }
-            }
-            id
-            isActive
-            isComingSoon
-            latitude
-            longitude
-            name
-            phone
-            region
-         }
-      }
+   const { createPage } = actions
+   // console.log(page)
+   if (page && page.path && /^\/tec\//.test(page.path)) {
+      createPage({
+         path: "/tec/",
+         matchPath: "/tec/*",
+         component: path.resolve("src/pages/tec.tsx"),
+      })
    }
 }
-  `)
-  console.log(result)
-  result.data.allCentreJson.edges.forEach(({ node: {
-      address,
-      city,
-      currencyCode,
-      fax,
-      fields,
-      id,
-      isActive,
-      isComingSoon,
-      latitude,
-      longitude,
-      name,
-      phone,
-      region
-  } }) => {
-    createPage({
-      path: `/tec-centre/${id}/`,
-      matchPath: `/tec-centre/${id}/*`,
-      component: path.resolve('src/pages/tec-centre.tsx'),
-      context: {
-         address,
-         city,
-         currencyCode,
-         fax,
-         rooms: ((fields || {}).rooms || []).map(r => ({
-            centre: r.centre,
-            centreCode: r.centreCode,
-            city: r.city,
-            websiteUrl: ((r.fields || {}).website || {}).url,
-            file: r.file,
-            id: r.id,
-            market: r.market,
-            path: r.path
-         })),
-         id,
-         isActive,
-         isComingSoon,
-         latitude,
-         longitude,
-         name,
-         phone,
-         region
+exports.createPages = async ({ graphql, actions }) => {
+   const { createPage } = actions
+   const result = await graphql(`
+      query {
+         allCentreJson {
+            edges {
+               node {
+                  address
+                  city
+                  currencyCode
+                  fax
+                  fields {
+                     rooms {
+                        centre
+                        centreCode
+                        city
+                        fields {
+                           website {
+                              url
+                           }
+                        }
+                        file
+                        id
+                        market
+                        path
+                     }
+                  }
+                  id
+                  isActive
+                  isComingSoon
+                  latitude
+                  longitude
+                  name
+                  phone
+                  region
+               }
+            }
+         }
       }
-    })
-  })
+   `)
+   // console.log(result)
+   result.data.allCentreJson.edges.forEach(
+      ({ node: { address, city, currencyCode, fax, fields, id, isActive, isComingSoon, latitude, longitude, name, phone, region } }) => {
+         createPage({
+            path: `/tec-centre/${id}/`,
+            matchPath: `/tec-centre/${id}/*`,
+            component: path.resolve("src/pages/tec-centre.tsx"),
+            context: {
+               address,
+               city,
+               currencyCode,
+               fax,
+               rooms: ((fields || {}).rooms || []).map(r => ({
+                  centre: r.centre,
+                  centreCode: r.centreCode,
+                  city: r.city,
+                  websiteUrl: ((r.fields || {}).website || {}).url,
+                  file: r.file,
+                  id: r.id,
+                  market: r.market,
+                  path: r.path,
+               })),
+               id,
+               isActive,
+               isComingSoon,
+               latitude,
+               longitude,
+               name,
+               phone,
+               region,
+            },
+         })
+      }
+   )
 }
 
 function fetchFiles(path1) {
@@ -308,10 +296,10 @@ const centreCodes = {
    "World Trade Center Colombo": "coL",
    "Enterprise Headquarter Building": "EHQ",
    "China Central Place L6": "CC2",
-   "Xintiandi": "XTD",
+   Xintiandi: "XTD",
    "RCBC Plaza": "RCB",
    "Ocean Financial Centre L37": "OF2",
-   "HNA": "HNA",
+   HNA: "HNA",
    "Jongno Tower": "JNT",
    "Roppongi Hills North Tower L16": "RN2",
    "28 Hennessy Road": "28H",
@@ -329,7 +317,7 @@ const centreCodes = {
    "China Resources Building": "CRB",
    "China World Office 2": "CW3",
    "Hong Kong One IFC": "1FC",
-   "Tribe": "CRC",
+   Tribe: "CRC",
    "UB City": "UBC",
    "Taipei Nanshan Plaza L37": "NA2",
    "World Financial Centre": "WFC",
@@ -346,5 +334,5 @@ const centreCodes = {
    "Kaman Amaryllis": "KAM",
    "DLF Centre L8": "DL2",
    "Metropolitan Oriental Plaza": "MOP",
-   "Salarpuria Sattva Knowledge City L7": "SK2"
+   "Salarpuria Sattva Knowledge City L7": "SK2",
 }

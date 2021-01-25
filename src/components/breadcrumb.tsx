@@ -30,16 +30,16 @@ type BreadcrumbRegionChangeAction = {
 
 type BreadcrumbAction = BreadcrumbRegionChangeAction
 
-function breadcrumbReducer(state: BreadcrumbState, action: BreadcrumbAction) {
-   switch (action.type) {
-      case `REGION_CHANGE`: {
-         return Object.assign({}, state, { region: action.payload })
-      }
-      default: {
-         throw new Error()
-      }
-   }
-}
+// function breadcrumbReducer(state: BreadcrumbState, action: BreadcrumbAction) {
+//    switch (action.type) {
+//       case `REGION_CHANGE`: {
+//          return Object.assign({}, state, { region: action.payload })
+//       }
+//       default: {
+//          throw new Error()
+//       }
+//    }
+// }
 
 function renderLabel(href, children, count) {
    switch (href) {
@@ -57,7 +57,13 @@ function renderLabel(href, children, count) {
          const flag = getFlag(href, ``)
          return (
             <>
-               {flag ? <span className="label-building">{flag} {children}</span> : <span className="label-building">{children}</span>}
+               {flag ? (
+                  <span className="label-building">
+                     {flag} {children}
+                  </span>
+               ) : (
+                  <span className="label-building">{children}</span>
+               )}
                {!!count && <Tag className="is-info tag-building">{count}</Tag>}
             </>
          )
@@ -151,7 +157,9 @@ const initialState = {
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({}) => {
-   const { state: { hash } } = React.useContext(WinContext)
+   const {
+      state: { hash },
+   } = React.useContext(WinContext)
    const {
       state: { centreGeoJSONLookup, cityGeoJSONLookup, regionGeoJSONLookup },
       dispatch: mapDispatch,

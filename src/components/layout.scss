@@ -10,11 +10,13 @@
 // @import "~bulma/sass/layout/section.sass";
 @import "~react-bulma-components/src/index.sass";
 
-img, video{
+img,
+video {
    max-width: inherit;
 }
 
-html, body {
+html,
+body {
    padding: 0;
    margin: 0;
 }
@@ -53,7 +55,11 @@ div.mapboxgl-map {
    border-radius: 0.4rem;
 
    .button {
-      background: transparent;
+      // background: transparent;
+      border-bottom-right-radius: 25px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 2px;
+      border-bottom-left-radius: 2px;
       border: 0 none;
       padding: 0.1rem 0.5rem;
       font-size: 0.8rem;
@@ -210,13 +216,17 @@ div.mapboxgl-map {
 }
 
 @keyframes line-loop1 {
-   0% { width: 0; }
-   100% { width: 100%; }
+   0% {
+      width: 0;
+   }
+   100% {
+      width: 100%;
+   }
 }
 
 .card.my-card {
    background-color: transparent;
-   box-shadow: 0px 1px 13px 0px rgba(0,0,0,0.2), 0px 1px 11px 0px rgba(0,0,0,0.14), 0px 2px 11px -1px rgba(0,0,0,0.12);
+   box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.2), 0px 1px 11px 0px rgba(0, 0, 0, 0.14), 0px 2px 11px -1px rgba(0, 0, 0, 0.12);
    border-radius: 14px;
    @include from($tablet) {
       padding: 1em;
@@ -243,16 +253,32 @@ div.mapboxgl-map {
 }
 
 @keyframes bg-loop1 {
-   0% { opacity: 0.01; }
-   10% { opacity: 0.01; }
-   50% { opacity: 0.15; }
-   90% { opacity: 0.01; }
-   100% { opacity: 0.01; }
+   0% {
+      opacity: 0.01;
+   }
+   10% {
+      opacity: 0.01;
+   }
+   50% {
+      opacity: 0.15;
+   }
+   90% {
+      opacity: 0.01;
+   }
+   100% {
+      opacity: 0.01;
+   }
 }
 @keyframes bg-loop2 {
-   0% { background-position: 100% 100%; }
-   50% { background-position: 0% 0%; }
-   100% { background-position: 100% 100%; }
+   0% {
+      background-position: 100% 100%;
+   }
+   50% {
+      background-position: 0% 0%;
+   }
+   100% {
+      background-position: 100% 100%;
+   }
 }
 #___gatsby {
    position: fixed;

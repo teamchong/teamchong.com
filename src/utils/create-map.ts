@@ -75,11 +75,11 @@ async function createMap(element: HTMLElement, centreGeoJSON: GeoJSON.FeatureCol
       })
    })
    const { navigation, geolocate, styleSwitcher, fullscreen, geocoder } = await new Promise<{
-      navigation: mapboxgl.NavigationControl,
-      geolocate: mapboxgl.GeolocateControl,
-      styleSwitcher: MapboxStyleSwitcherControl,
-      geocoder: MapboxGeocoderType,
-      fullscreen: mapboxgl.FullscreenControl,
+      navigation: mapboxgl.NavigationControl
+      geolocate: mapboxgl.GeolocateControl
+      styleSwitcher: MapboxStyleSwitcherControl
+      geocoder: MapboxGeocoderType
+      fullscreen: mapboxgl.FullscreenControl
    }>((resolve, reject) => {
       try {
          map.on(`load`, () => {
@@ -98,7 +98,7 @@ async function createMap(element: HTMLElement, centreGeoJSON: GeoJSON.FeatureCol
             map.addControl(fullscreen, `top-right`)
 
             const geocoder = createGeocoder(centreGeoJSON)
-            map.addControl(geocoder, `top-left`) 
+            map.addControl(geocoder, `top-left`)
             resolve({ navigation, geolocate, styleSwitcher, fullscreen, geocoder })
          })
       } catch (error) {
@@ -341,7 +341,9 @@ function addEvents(map: mapboxgl.Map, centreGeoJSON: GeoJSON.FeatureCollection<G
 
    // inspect a cluster on click
    map.doubleClickZoom.disable()
-   map.on(`click`, function(ev) { map.flyTo({ center: ev.lngLat }) })
+   // map.on(`click`, function (ev) {
+   //    map.flyTo({ center: ev.lngLat })
+   // })
    map.on(`mouseenter`, `markers`, handleMouseEnter)
    map.on(`mouseleave`, `markers`, handleMouseLeave)
    map.on(`click`, `markers`, handleClick)
@@ -408,7 +410,7 @@ function addKeyControl(map: mapboxgl.Map) {
 
 function localGeocoder(centreGeoJSON: GeoJSON.FeatureCollection<GeoJSON.Point, CentreGeoJsonProperties>) {
    return (query: string) => {
-      console.log({query})
+      // console.log({query})
       const options = {
          includeScore: true,
          includeMatches: true,
