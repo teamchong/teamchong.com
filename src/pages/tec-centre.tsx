@@ -41,7 +41,7 @@ function A({ tagName, ...props }) {
 const CentrePage: React.FC<PageProps<Props>> = ({
    pageContext: { address, city, currencyCode, fax, rooms, id, isActive, isComingSoon, latitude, longitude, name, phone, region },
 }) => {
-   const [state, setState] = React.useState({ scrollY: 0 })
+   const [state, setState] = React.useState({ scrollY: 0, innerHeight: 0 })
    React.useEffect(() => {
       const style = document.createElement('style');
       style.type = 'text/css';
@@ -50,13 +50,16 @@ body { overflow: visible; }
 #___gatsby{ position: static !important; }`;
       document.querySelector('head').appendChild(style);
       window.addEventListener('scroll', (ev) => {
-         setState({ scrollY: window.scrollY });
+         setState({ scrollY: window.scrollY, innerHeight: window.innerHeight });
+      })
+      window.addEventListener('resize', (ev) => {
+         setState({ scrollY: window.scrollY, innerHeight: window.innerHeight });
       })
    }, [])
    let x = 0;
    let y = 0;
    let rate = 1 / 12;
-   if (window.scrollY > window.innerHeight) {
+   if (state.scrollY > state.innerHeight) {
       rate * 10;
    }
    // React.useEffect(() => {
@@ -80,11 +83,11 @@ body { overflow: visible; }
                      {rooms?.map(({ path }, i) => (
                         <img key={i} id={`img-${i}`} src={`/360/${path}`} />
                      ))}
-                     <video key="video-1" id="video-1" src={`/office360.mp4`} autoPlay={window.scrollY > window.innerHeight * 7} preload={window.scrollY > window.innerHeight ? "auto" : null} loop={true} />
+                     <video key="video-1" id="video-1" src={`/office360.mp4`} autoPlay={state.scrollY > state.innerHeight * 7} preload={state.scrollY > state.innerHeight ? "auto" : null} loop={true} />
                   </A>
                   <A
                      tagName="a-sky"
-                     src={window.scrollY > window.innerHeight * 7 ? '#video-1' : window.scrollY > window.innerHeight * 3 ? '#img-2' : '#img-0'}
+                     src={state.scrollY > state.innerHeight * 7 ? '#video-1' : state.scrollY > state.innerHeight * 3 ? '#img-2' : '#img-0'}
                      look-controls
                      wasd-controls="enabled: true"
                      position={`${x} ${y} 0`}
@@ -148,6 +151,11 @@ body { overflow: visible; }
                </div>
             </div>
             <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30px', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30px", textAlign: "center", color: "#369" }}>
+                     Location
+                  </h1>
+               </div>
                <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'100vh'}}></iframe>
             </div>
          </div>
