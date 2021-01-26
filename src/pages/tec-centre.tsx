@@ -48,7 +48,7 @@ const CentrePage: React.FC<PageProps<Props>> = ({
 body { overflow: visible; }
 #___gatsby{ position: static !important; }`;
       document.querySelector('head').appendChild(style);
-      window.addEventListener('scroll', (ev) => {
+      document.addEventListener('scroll', (ev) => {
          setState({ scrollY: window.scrollY, innerHeight: window.innerHeight });
       })
       window.addEventListener('resize', (ev) => {
@@ -150,7 +150,7 @@ body { overflow: visible; }
                </div>
             </div>
             <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'top' }}>
-               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'100vh'}}></iframe>
+               {state.scrollY > state.innerHeight * 9 && <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'90vh', marginTop: '10vh'}}></iframe>}
             </div>
          </div>
       </Layout>
