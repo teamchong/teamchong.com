@@ -6,7 +6,7 @@ import Helmet from "react-helmet"
 import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween, Timeline } from "react-gsap"
-import "aframe"
+import "../components/tec-centre.scss"
 
 type Props = {
    pageContext: {
@@ -44,12 +44,6 @@ const CentrePage: React.FC<PageProps<Props>> = ({
 }) => {
    const [state, setState] = React.useState({ scrollY: 0, innerHeight: 0 })
    React.useEffect(() => {
-      const style = document.createElement('style');
-      style.setAttribute('type', 'text/css');
-      style.innerHTML = `
-body { overflow: visible; }
-#___gatsby{ position: static !important; }`;
-      document.querySelector('head').appendChild(style);
       function refresh() {
          setState({ scrollY: window.scrollY, innerHeight: window.innerHeight });
          requestAnimationFrame(refresh)
@@ -84,9 +78,9 @@ body { overflow: visible; }
    return (
       <Layout>
          <SEO title={'POC - ' + name}></SEO>
-         {typeof window === 'undefined' && <Helmet>
-            <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-         </Helmet>}
+         {/* <Helmet>
+            {typeof window === 'undefined' && <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>}
+         </Helmet> */}
          <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
             <div style={{ width: "100vw", height: "100vh", position: "fixed", zIndex: -1 }}>
                <A
@@ -99,9 +93,9 @@ body { overflow: visible; }
                >
                   <A tagName="a-assets">
                      {rooms?.map(({ path }, i) => (
-                        <img key={i} id={`img-${i}`} src={`/360/${path}`} />
+                        i === 0 || i === 2 ? <img crossOrigin="" key={i} id={`img-${i}`} src={`/360/${path}`} /> : null
                      ))}
-                     <video key="video-1" id="video-1" src={`/office360.mp4`} autoPlay={state.scrollY > state.innerHeight * 7} preload="true" loop={true} />
+                     <video crossOrigin="" key="video-1" id="video-1" src={`/office360.mp4`} autoPlay={state.scrollY > state.innerHeight * 7} preload="true" loop={true} />
                   </A>
                   <A
                      tagName="a-sky"
@@ -119,7 +113,7 @@ body { overflow: visible; }
                staggerTo={{ y: 0, visibility: "visible", opacity: 1 }}
                stagger={1}
             ></Tween> */}
-            <div style={{  width: "100vw", height: "100vh", pointerEvents: "none", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
                   <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
                      POC - {name}
@@ -169,7 +163,7 @@ body { overflow: visible; }
                </div>
             </div>
             <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end' }}>
-               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'40vw',height:'40vh', marginTop: '10vh'}}></iframe>
+               {state.scrollY > state.innerHeight * 7 && <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'40vw',height:'40vh', marginTop: '10vh'}}></iframe>}
             </div>
          </div>
       </Layout>

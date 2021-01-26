@@ -5,6 +5,14 @@ module.exports = {
       author: `@teamchong`,
    },
    plugins: [
+      {
+         resolve: "gatsby-plugin-load-script",
+         options: {
+            src: "https://cdn.jsdelivr.net/npm/aframe@1.1.0/dist/aframe-master.min.js",
+            integrity: "sha256-ZGpOZKNSupcSIa8CSMnfNReamrJWVc9N7ljvKkUynOc=",
+            crossorigin: "anonymous",
+         },
+      },
       `gatsby-plugin-react-helmet`,
       {
          resolve: `gatsby-source-filesystem`,
