@@ -56,6 +56,22 @@ body { overflow: visible; }
       }
       refresh()
    }, [])
+   const l = React.useRef({ loaded: false })
+   React.useEffect(() => {
+      if (state.scrollY > state.innerHeight * 7) {
+         var video = document.querySelector('#video-1')
+         if (video) {
+            if (!video.isPlaying) {
+               video.play()
+            }
+         }  
+      } else if (state.scrollY > state.innerHeight) {
+         var video = document.querySelector('#video-1')
+         if (video) {
+            video.load()
+         }
+      }
+   })
    let x = 0;
    let y = 0;
    let rate = 1 / 12;
@@ -68,6 +84,9 @@ body { overflow: visible; }
    return (
       <Layout>
          <SEO title={'POC - ' + name}></SEO>
+         <Helmet>
+            <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+         </Helmet>
          <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
             <div style={{ width: "100vw", height: "100vh", position: "fixed", zIndex: -1 }}>
                <A
@@ -82,7 +101,7 @@ body { overflow: visible; }
                      {rooms?.map(({ path }, i) => (
                         <img key={i} id={`img-${i}`} src={`/360/${path}`} />
                      ))}
-                     <video key="video-1" id="video-1" src={`/office360.mp4`} autoPlay={state.scrollY > state.innerHeight * 7} preload={state.scrollY > state.innerHeight ? "auto" : null} loop={true} />
+                     <video key="video-1" id="video-1" src={`/office360.mp4`} autoPlay={state.scrollY > state.innerHeight * 7} preload="true" loop={true} />
                   </A>
                   <A
                      tagName="a-sky"
@@ -150,7 +169,7 @@ body { overflow: visible; }
                </div>
             </div>
             <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'top' }}>
-               {state.scrollY > state.innerHeight * 9 && <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'90vh', marginTop: '10vh'}}></iframe>}
+               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'90vh', marginTop: '10vh'}}></iframe>
             </div>
          </div>
       </Layout>
