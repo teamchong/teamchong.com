@@ -62,8 +62,8 @@ async function createMap(element: HTMLElement, centreGeoJSON: GeoJSON.FeatureCol
       maxZoom: 18,
 
       /** stylesheet location */
-      // style: `mapbox://styles/mapbox/streets-v11`,
-      style: `mapbox://styles/mapbox/satellite-streets-v11`,
+      style: `mapbox://styles/mapbox/streets-v11`,
+      // style: `mapbox://styles/mapbox/satellite-streets-v11`,
       // keyboard: false,
    })
 
