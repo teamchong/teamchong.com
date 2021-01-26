@@ -169,7 +169,7 @@ body { overflow: visible; }
                </div>
             </div>
             <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end' }}>
-               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'4vw',height:'40vh', marginTop: '10vh'}}></iframe>
+               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'40vw',height:'40vh', marginTop: '10vh'}}></iframe>
             </div>
          </div>
       </Layout>
