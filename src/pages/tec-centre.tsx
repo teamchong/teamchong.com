@@ -66,9 +66,8 @@ body { overflow: visible; }
    // }, [])
    return (
       <Layout>
-         <SEO title={'POC - ' + name}>
-            <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-         </SEO>
+         <SEO title={'POC - ' + name}></SEO>
+         <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
          <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
             <div style={{ width: "100vw", height: "100vh", position: "fixed", zIndex: -1 }}>
                <A
@@ -150,12 +149,7 @@ body { overflow: visible; }
                   </h1>
                </div>
             </div>
-            <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30px', borderRadius: '30px' }}>
-                  <h1 style={{ fontSize: "110px", lineHeight: "30px", textAlign: "center", color: "#369" }}>
-                     Location
-                  </h1>
-               </div>
+            <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'top' }}>
                <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'100vh'}}></iframe>
             </div>
          </div>
