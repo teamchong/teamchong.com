@@ -84,9 +84,9 @@ body { overflow: visible; }
    return (
       <Layout>
          <SEO title={'POC - ' + name}></SEO>
-         <Helmet>
+         {typeof window === 'undefined' && <Helmet>
             <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-         </Helmet>
+         </Helmet>}
          <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
             <div style={{ width: "100vw", height: "100vh", position: "fixed", zIndex: -1 }}>
                <A
@@ -168,8 +168,8 @@ body { overflow: visible; }
                   </h1>
                </div>
             </div>
-            <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'top' }}>
-               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'90vh', marginTop: '10vh'}}></iframe>
+            <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end' }}>
+               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'4vw',height:'40vh', marginTop: '10vh'}}></iframe>
             </div>
          </div>
       </Layout>
