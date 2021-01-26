@@ -45,7 +45,7 @@ const CentrePage: React.FC<PageProps<Props>> = ({
    const [state, setState] = React.useState({ scrollY: 0, innerHeight: 0 })
    React.useEffect(() => {
       const style = document.createElement('style');
-      style.type = 'text/css';
+      style.setAttribute('type', 'text/css');
       style.innerHTML = `
 body { overflow: visible; }
 #___gatsby{ position: static !important; }`;
