@@ -77,7 +77,7 @@ const CentrePage: React.FC<PageProps<Props>> = ({
    }, [])
    let offset = ~~(scrollY / innerHeight / 3)
    React.useEffect(() => {
-      if (offset > 0) {
+      if (offset >= rooms?.length) {
          var video = document.querySelector("#video-1")
          if (video) {
             if (!video.isPlaying) {
@@ -113,7 +113,7 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                         i + 1 >= offset && offset >= i - 1 &&
                         <img crossOrigin="" key={i} id={`img-${i}`} src={`/360/${path}`} />
                      ))}
-                     {offset > 0 && <video
+                     {offset >= rooms?.length && <video
                         crossOrigin=""
                         key="video-1"
                         id="video-1"
