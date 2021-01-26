@@ -2,9 +2,11 @@ import React from "react"
 import { PageProps, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Helmet from "react-helmet"
 import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween, Timeline } from "react-gsap"
+import "aframe"
 
 type Props = {
    pageContext: {
@@ -48,12 +50,11 @@ const CentrePage: React.FC<PageProps<Props>> = ({
 body { overflow: visible; }
 #___gatsby{ position: static !important; }`;
       document.querySelector('head').appendChild(style);
-      document.addEventListener('scroll', (ev) => {
+      function refresh() {
          setState({ scrollY: window.scrollY, innerHeight: window.innerHeight });
-      })
-      window.addEventListener('resize', (ev) => {
-         setState({ scrollY: window.scrollY, innerHeight: window.innerHeight });
-      })
+         requestAnimationFrame(refresh)
+      }
+      refresh()
    }, [])
    let x = 0;
    let y = 0;
@@ -67,7 +68,6 @@ body { overflow: visible; }
    return (
       <Layout>
          <SEO title={'POC - ' + name}></SEO>
-         <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
          <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
             <div style={{ width: "100vw", height: "100vh", position: "fixed", zIndex: -1 }}>
                <A
