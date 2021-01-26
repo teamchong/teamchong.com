@@ -53,14 +53,20 @@ body { overflow: visible; }
          setState({ scrollY: window.scrollY });
       })
    }, [])
-   let angleX = -130
-   let angleY = 0
-   const container = React.useRef(null)
+   let x = 0;
+   let y = 0;
+   let rate = 1 / 12;
+   if (window.scrollY > window.innerHeight) {
+      rate * 10;
+   }
+   // React.useEffect(() => {
+   //    document.querySelector('#video-1').load()
+   // }, [])
    return (
       <Layout>
-         <SEO title={name}>
+         <SEO title={'POC - ' + name}>
          </SEO>
-         <div style={{ width: "100vw", height: "100vh", position: "relative" }} ref={container}>
+         <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
             <div style={{ width: "100vw", height: "100vh", position: "fixed", zIndex: -1 }}>
                <A
                   tagName="a-scene"
@@ -74,14 +80,15 @@ body { overflow: visible; }
                      {rooms?.map(({ path }, i) => (
                         <img key={i} id={`img-${i}`} src={`/360/${path}`} />
                      ))}
+                     <video key="video-1" id="video-1" src={`/office360.mp4`} autoPlay={window.scrollY > window.innerHeight * 7} preload={window.scrollY > window.innerHeight ? "auto" : null} loop={true} />
                   </A>
                   <A
                      tagName="a-sky"
-                     src="#img-0"
+                     src={window.scrollY > window.innerHeight * 7 ? '#video-1' : window.scrollY > window.innerHeight * 3 ? '#img-2' : '#img-0'}
                      look-controls
                      wasd-controls="enabled: true"
-                     position="0 0 0"
-                     rotation={`0 ${(state.scrollY / 10) % 360} ${angleY}`}
+                     position={`${x} ${y} 0`}
+                     rotation={`0 ${(state.scrollY * rate) % 360 - 120} 0`}
                   />
                   {/* <A tagName="a-camera"/> */}
                </A>
@@ -91,22 +98,58 @@ body { overflow: visible; }
                staggerTo={{ y: 0, visibility: "visible", opacity: 1 }}
                stagger={1}
             ></Tween> */}
-            {/* {!!container.current && <Controller container={container.current}> */}
-            <div style={{ opacity: 0.9, width: "100vw", height: "100vh", pointerEvents: "none", whiteSpace: "nowrap" }}>
-               <h1 style={{ fontSize: "110px", lineHeight: "100vh", textAlign: "center", width: "100vw", color: "#fff", position: "absolute" }}>
-                  {name}
-               </h1>
-               <h1 style={{ fontSize: "100px", lineHeight: "100vh", textAlign: "center", width: "100vw", color: "#039", position: "absolute" }}>
-                  {name}
-               </h1>
+            <div style={{  width: "100vw", height: "100vh", pointerEvents: "none", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
+                     POC - {name}
+                  </h1>
+               </div>
             </div>
-            <div style={{ opacity: 0.9, width: "100vw", height: "100vh", pointerEvents: "none" }}>
-               <h1 style={{ fontSize: "31px", lineHeight: "100vh", textAlign: "center", width: "100vw", color: "#fff", position: "absolute" }}>
-                  {address}
-               </h1>
-               <h1 style={{ fontSize: "30px", lineHeight: "100vh", textAlign: "center", width: "100vw", color: "#039" }}>{address}</h1>
+            <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
+                     Reception
+                  </h1>
+               </div>
             </div>
-            {/* </Controller>} */}
+            <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
+                     Coworking Area
+                  </h1>
+               </div>
+            </div>
+            <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'center', background: "#fff" }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
+                     {!!rooms && !!rooms[0] && <a href={rooms[0].websiteUrl}>Visit our website</a>}
+                  </h1>
+               </div>
+            </div>
+            <div style={{ width: "100vw", height: "300vh", pointerEvents: "none", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
+                     Meeting Room
+                  </h1>
+               </div>
+            </div>
+            <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'center', background: "#fff" }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
+                     Also...
+                  </h1>
+               </div>
+            </div>
+            <div style={{ width: "100vw", height: "400vh", pointerEvents: "none", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <div style={{ background: 'rgba(255, 255, 255, 0.9)', width: '80vw', height: '30vh', borderRadius: '30px' }}>
+                  <h1 style={{ fontSize: "110px", lineHeight: "30vh", textAlign: "center", color: "#369" }}>
+                     Video
+                  </h1>
+               </div>
+            </div>
+            <div style={{ width: "100vw", height: "100vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <iframe src={'/tec/' + encodeURIComponent(id)} style={{width:'100vw',height:'100vh'}}></iframe>
+            </div>
          </div>
       </Layout>
    )
