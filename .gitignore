@@ -58,6 +58,7 @@ typings/
 .cache/
 public/*
 !public/_redirects
+!public/_headers
 
 # Mac files
 .DS_Store
