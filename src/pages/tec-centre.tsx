@@ -1,13 +1,14 @@
 import React from "react"
-import { PageProps, graphql } from "gatsby"
+// import { PageProps, graphql } from "gatsby"
+import { PageProps } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Helmet from "react-helmet"
-import styled from "styled-components"
-import { Controller, Scene } from "react-scrollmagic"
-import { Tween, Timeline } from "react-gsap"
+// import Helmet from "react-helmet"
+// import styled from "styled-components"
+// import { Controller, Scene } from "react-scrollmagic"
+// import { Tween, Timeline } from "react-gsap"
 import "../components/tec-centre.scss"
-import { ScrollToPlugin } from "gsap/all"
+// import { ScrollToPlugin } from "gsap/all"
 
 type Props = {
    pageContext: {
@@ -234,7 +235,7 @@ const CentrePage: React.FC<PageProps<Props>> = ({
             <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "#fff" }}>
                {offset >= rooms?.length && (
                   !canPlayThrough ? (
-                     <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center", position: 'fixed', top: 0 }}>
+                     <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center", position: 'fixed', top: 0, left: 0 }}>
                         <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "20px 100px" }}>
                            <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>Loading Video...</h1>
                         </div>
@@ -247,7 +248,7 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                )}
             </div>
             <div style={{ width: "100vw", height: "300vh", display: "flex", justifyContent: "flex-start", alignItems: "flex-end" }}>
-               {offset >= rooms?.length - 1 && (
+               {offset >= rooms?.length && (
                   <iframe src={"/tec/" + encodeURIComponent(id)} style={{ width: "40vw", height: "40vh", marginTop: "10vh" }}></iframe>
                )}
             </div>
