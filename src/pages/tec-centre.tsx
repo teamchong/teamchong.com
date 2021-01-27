@@ -96,13 +96,15 @@ const CentrePage: React.FC<PageProps<Props>> = ({
    const videoRef = React.useRef<HTMLVideoElement>(null)
    let offset = ~~((scrollY + innerHeight) / innerHeight / 4)
    React.useEffect(() => {
-      if (videoRef.current && !videoRef.current.getAttribute('data-initialized')) {
+      if (!videoRef.current ){
+         dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { canPlayThrough: false } })
+      }
+      else if (!videoRef.current.getAttribute('data-initialized')) {
          videoRef.current.addEventListener('canplaythrough', () => {
             dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { canPlayThrough: true } })
          })
          videoRef.current.setAttribute('data-initialized', "true")
-      } else {
-         dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { canPlayThrough: false } })
+         videoRef.current.play()
       }
    })
    let x = 0
