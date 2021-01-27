@@ -7,6 +7,7 @@ import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween, Timeline } from "react-gsap"
 import "../components/tec-centre.scss"
+import { ScrollToPlugin } from "gsap/all"
 
 type Props = {
    pageContext: {
@@ -35,17 +36,28 @@ type Props = {
    }
 }
 
-type State = {
+type ScrollState = {
    scrollY: number
    innerHeight: number
 }
 
-type UpdateScrollAction = {
-   type: `UPDATE_SCROLL`
-   payload: State
+type VideoState = {
+   canPlayThrough: boolean
 }
 
-type Action = UpdateScrollAction
+type State = ScrollState & VideoState
+
+type UpdateScrollAction = {
+   type: `UPDATE_SCROLL`
+   payload: ScrollState
+}
+
+type UpdateVideoStateAction = {
+   type: `UPDDATE_VIDEO_STATE`
+   payload: VideoState
+}
+
+type Action = UpdateScrollAction | UpdateVideoStateAction
 
 function reducer(state: State, action: Action) {
    switch (action.type) {
@@ -55,6 +67,12 @@ function reducer(state: State, action: Action) {
             return state
          }
          return { ...state, scrollY, innerHeight }
+      case `UPDDATE_VIDEO_STATE`:
+         const { canPlayThrough } = action.payload
+         if (canPlayThrough === state.canPlayThrough) {
+            return state
+         }
+         return { ...state, scrollY, canPlayThrough }
       default:
          throw new Error()
    }
@@ -67,7 +85,7 @@ function A({ tagName, ...props }) {
 const CentrePage: React.FC<PageProps<Props>> = ({
    pageContext: { address, city, currencyCode, fax, rooms, id, isActive, isComingSoon, latitude, longitude, name, phone, region },
 }) => {
-   const [{ scrollY, innerHeight }, dispatch] = React.useReducer(reducer, { scrollY: 0, innerHeight: 0 })
+   const [{ scrollY, innerHeight, canPlayThrough }, dispatch] = React.useReducer(reducer, { scrollY: 0, innerHeight: 0, canPlayThrough: false })
    React.useEffect(() => {
       function refresh() {
          dispatch({ type: "UPDATE_SCROLL", payload: { scrollY: window.scrollY, innerHeight: window.innerHeight } })
@@ -75,15 +93,16 @@ const CentrePage: React.FC<PageProps<Props>> = ({
       }
       refresh()
    }, [])
-   let offset = ~~(scrollY / innerHeight / 3)
+   const videoRef = React.useRef<HTMLVideoElement>(null)
+   let offset = ~~((scrollY + innerHeight) / innerHeight / 4)
    React.useEffect(() => {
-      if (offset >= rooms?.length) {
-         var video = document.querySelector("#video-1")
-         if (video) {
-            if (!video.isPlaying) {
-               video.play()
-            }
-         }
+      if (videoRef.current && !videoRef.current.getAttribute('data-initialized')) {
+         videoRef.current.addEventListener('canplaythrough', () => {
+            dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { canPlayThrough: true } })
+         })
+         videoRef.current.setAttribute('data-initialized', "true")
+      } else {
+         dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { canPlayThrough: false } })
       }
    })
    let x = 0
@@ -114,13 +133,16 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                         <img crossOrigin="" key={i} id={`img-${i}`} src={`/360/${path}`} />
                      ))}
                      {offset >= rooms?.length && <video
+                        muted={true}
+                        height={innerHeight}
                         crossOrigin=""
                         key="video-1"
                         id="video-1"
                         src={`/office360.mp4`}
-                        autoPlay={true}
+                        autoPlay={false}
                         preload="true"
                         loop={true}
+                        ref={videoRef}
                      />}
                   </A>
                   <A
@@ -134,6 +156,12 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                   {/* <A tagName="a-camera"/> */}
                </A>
             </div>
+            {/* <div style={{position:'fixed',top:0}}>
+               scrollY: {scrollY},
+               innerHeight: {innerHeight},
+               offset: {offset},
+               rooms?.length: {rooms?.length},
+            </div> */}
             {/* <Tween
                staggerFrom={{ y: 50, visibility: "hidden", opacity: 0 }}
                staggerTo={{ y: 0, visibility: "visible", opacity: 1 }}
@@ -199,9 +227,22 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                </div>
                <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
                <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
+               <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
             </React.Fragment>)}
             <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "#fff" }}>
-               <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>Loading Video...</h1>
+               {offset >= rooms?.length && (
+                  !canPlayThrough ? (
+                     <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center", position: 'fixed', top: 0 }}>
+                        <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "20px 100px" }}>
+                           <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>Loading Video...</h1>
+                        </div>
+                     </div>
+                  ) : (
+                     <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>
+                        Video
+                     </h1>
+                  )
+               )}
             </div>
             <div style={{ width: "100vw", height: "300vh", display: "flex", justifyContent: "flex-start", alignItems: "flex-end" }}>
                {offset >= rooms?.length - 1 && (
