@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 // import styled from "styled-components"
 // import { Controller, Scene } from "react-scrollmagic"
 // import { Tween, Timeline } from "react-gsap"
-import "../components/tec-centre.scss"
+// import "../components/tec-centre.scss"
 // import { ScrollToPlugin } from "gsap/all"
 
 type Props = {
@@ -38,42 +38,32 @@ type Props = {
 }
 
 type ScrollState = {
+   roomLength: number
+   offset: number
    scrollY: number
    innerHeight: number
+   playVideo: boolean
 }
 
-type VideoState = {
-   canPlayThrough: boolean
-}
-
-type State = ScrollState & VideoState
+type State = ScrollState
 
 type UpdateScrollAction = {
    type: `UPDATE_SCROLL`
-   payload: ScrollState
+   payload: Partial<ScrollState>
 }
 
-type UpdateVideoStateAction = {
-   type: `UPDDATE_VIDEO_STATE`
-   payload: VideoState
-}
-
-type Action = UpdateScrollAction | UpdateVideoStateAction
+type Action = UpdateScrollAction
 
 function reducer(state: State, action: Action) {
    switch (action.type) {
       case `UPDATE_SCROLL`:
          const { scrollY, innerHeight } = action.payload
-         if (scrollY === state.scrollY && innerHeight === state.innerHeight) {
+         const offset = ~~((scrollY + innerHeight) / innerHeight / 4)
+         const playVideo = state.playVideo || offset >= state.roomLength;
+         if (offset === state.offset && scrollY === state.scrollY && innerHeight === state.innerHeight && playVideo === state.playVideo) {
             return state
          }
-         return { ...state, scrollY, innerHeight }
-      case `UPDDATE_VIDEO_STATE`:
-         const { canPlayThrough } = action.payload
-         if (canPlayThrough === state.canPlayThrough) {
-            return state
-         }
-         return { ...state, scrollY, canPlayThrough }
+         return { ...state, offset, scrollY, innerHeight, playVideo }
       default:
          throw new Error()
    }
@@ -86,7 +76,7 @@ function A({ tagName, ...props }) {
 const CentrePage: React.FC<PageProps<Props>> = ({
    pageContext: { address, city, currencyCode, fax, rooms, id, isActive, isComingSoon, latitude, longitude, name, phone, region },
 }) => {
-   const [{ scrollY, innerHeight, canPlayThrough }, dispatch] = React.useReducer(reducer, { scrollY: 0, innerHeight: 0, canPlayThrough: false })
+   const [{ scrollY, innerHeight, playVideo, offset }, dispatch] = React.useReducer(reducer, { offset: 0, roomLength: rooms ? rooms.length : 0, scrollY: 0, innerHeight: 0, playVideo: false })
    React.useEffect(() => {
       function refresh() {
          dispatch({ type: "UPDATE_SCROLL", payload: { scrollY: window.scrollY, innerHeight: window.innerHeight } })
@@ -95,25 +85,21 @@ const CentrePage: React.FC<PageProps<Props>> = ({
       refresh()
    }, [])
    const videoRef = React.useRef<HTMLVideoElement>(null)
-   let offset = ~~((scrollY + innerHeight) / innerHeight / 4)
-   React.useEffect(() => {
-      if (!videoRef.current ){
-         dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { canPlayThrough: false } })
-      }
-      else if (!videoRef.current.getAttribute('data-initialized')) {
-         videoRef.current.addEventListener('canplaythrough', () => {
-            dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { canPlayThrough: true } })
-         })
-         videoRef.current.setAttribute('data-initialized', "true")
-         videoRef.current.play()
-      }
-   })
+   // React.useEffect(() => {
+   //    if (!videoRef.current ){
+   //       dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { playVideo: false } })
+   //    }
+   //    else if (!videoRef.current.getAttribute('data-initialized')) {
+   //       videoRef.current.addEventListener('canplaythrough', () => {
+   //          dispatch({ type: 'UPDDATE_VIDEO_STATE', payload: { playVideo: true } })
+   //       })
+   //       videoRef.current.setAttribute('data-initialized', "true")
+   //       // videoRef.current.play()
+   //    }
+   // })
    let x = 0
    let y = 0
    let rate = 360 / innerHeight / 3
-   // React.useEffect(() => {
-   //    document.querySelector('#video-1').load()
-   // }, [])
    return (
       <Layout>
          <SEO title={name}></SEO>
@@ -133,19 +119,18 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                   <A tagName="a-assets">
                      {rooms?.map(({ path }, i) => (
                         i + 1 >= offset && offset >= i - 1 &&
-                        <img crossOrigin="" key={i} id={`img-${i}`} src={`/360/${path}`} />
+                        <img crossOrigin="use-credentials" key={i} id={`img-${i}`} src={`/360/${path}`} />
                      ))}
-                     {offset >= rooms?.length && <video
+                     {playVideo && <video
+                        ref={videoRef}
                         muted={true}
-                        height={innerHeight}
-                        crossOrigin=""
+                        crossOrigin="use-credentials"
                         key="video-1"
                         id="video-1"
                         src={`/office360.mp4`}
-                        autoPlay={false}
+                        autoPlay={true}
                         preload="true"
                         loop={true}
-                        ref={videoRef}
                      />}
                   </A>
                   <A
@@ -229,28 +214,30 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                   <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>{room.id}</h1>
                </div>
                <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
-               <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
+               <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "20px 100px" }}>
+                     <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>Html content here</h1>
+                  </div>
+               </div>
                <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
             </React.Fragment>)}
-            <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "#fff" }}>
+            <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "#fff", overflow: "hidden" }}>
                {offset >= rooms?.length && (
-                  !canPlayThrough ? (
-                     <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center", position: 'fixed', top: 0, left: 0 }}>
-                        <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "20px 100px" }}>
-                           <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>Loading Video...</h1>
-                        </div>
-                     </div>
-                  ) : (
+                  // !playVideo ? (
+                  //    <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center", position: 'fixed', top: 0, left: 0 }}>
+                  //       <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "20px 100px" }}>
+                  //          <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>Loading Video...</h1>
+                  //       </div>
+                  //    </div>
+                  // ) : (
                      <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>
                         Video
                      </h1>
-                  )
+                  // )
                )}
             </div>
-            <div style={{ width: "100vw", height: "300vh", display: "flex", justifyContent: "flex-start", alignItems: "flex-end" }}>
-               {offset >= rooms?.length && (
-                  <iframe src={"/tec/" + encodeURIComponent(id)} style={{ width: "40vw", height: "40vh", marginTop: "10vh" }}></iframe>
-               )}
+            <div style={{ width: "100vw", height: "300vh", pointerEvents: "none", display: "flex", justifyContent: "flex-start", alignItems: "flex-end" }}>
+               {/* <iframe src={"/tec/" + encodeURIComponent(id)} style={{ width: "40vw", height: "40vh", marginTop: "10vh" }}></iframe> */}
             </div>
          </div>
       </Layout>
