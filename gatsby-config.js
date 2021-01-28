@@ -29,6 +29,14 @@ module.exports = {
       //       crossorigin: "anonymous",
       //    },
       // },
+      {
+         resolve: `gatsby-plugin-browser-dependencies`,
+         options: {
+         dependencies: [
+            `aframe`,
+         ]
+         },
+      },
       `gatsby-plugin-react-helmet`,
       {
          resolve: `gatsby-source-filesystem`,

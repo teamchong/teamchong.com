@@ -10,20 +10,20 @@ const path = require(`path`)
 const fs = require(`fs`)
 
 // Log out information after a build is done
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /^aframe$/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    })
-  }
-}
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   if (stage === "build-html") {
+//     actions.setWebpackConfig({
+//       module: {
+//         rules: [
+//           {
+//             test: /^aframe$/,
+//             use: loaders.null(),
+//           },
+//         ],
+//       },
+//     })
+//   }
+// }
 exports.sourceNodes = ({ actions, createContentDigest }) => {
    try {
       const { createNode } = actions
