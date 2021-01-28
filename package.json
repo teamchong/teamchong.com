@@ -24,6 +24,7 @@
     "gatsby-plugin-fontawesome-css": "^1.0.0",
     "gatsby-plugin-load-script": "^1.1.0",
     "gatsby-plugin-manifest": "^2.4.30",
+    "gatsby-plugin-netlify": "^2.10.0",
     "gatsby-plugin-offline": "^3.2.28",
     "gatsby-plugin-react-helmet": "^3.3.11",
     "gatsby-plugin-scss-typescript": "^4.0.13",

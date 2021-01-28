@@ -9,6 +9,9 @@ import SEO from "../components/seo"
 // import { Tween, Timeline } from "react-gsap"
 // import "../components/tec-centre.scss"
 // import { ScrollToPlugin } from "gsap/all"
+if (typeof window !== 'undefined') {
+   require("aframe")
+}
 
 type Props = {
    pageContext: {
@@ -155,8 +158,8 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                staggerTo={{ y: 0, visibility: "visible", opacity: 1 }}
                stagger={1}
             ></Tween> */}
-            <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-               <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "30px" }}>
+            <div style={{ width: "100vw", height: "100vh", display: "flex", pointerEvents: "none", justifyContent: "center", alignItems: "center" }}>
+               <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", pointerEvents: "auto", padding: "30px" }}>
                   <h1 style={{ fontSize: "5rem", textAlign: "center", color: "#369" }}>{name}</h1>
                   <p style={{ display: "flex", justifyContent: "space-between" }}>{address}</p>
                   <div style={{ border: "1px solid #ccc", borderRadius: "10px", margin: "10px auto" }}>
@@ -204,24 +207,24 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                </div>
             </div>
             <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}>
-               {!!rooms && !!rooms[0] && <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "20px 100px" }}>
+               {!!rooms && !!rooms[0] && <div style={{ background: "rgba(255, 255, 255, 0.9)", pointerEvents: "auto", borderRadius: "30px", padding: "20px 100px" }}>
                   <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>{rooms[0].id}</h1>
                </div>}
             </div>
             <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
             {!!rooms && rooms.filter((room, i) => i > 0).map((room, i) => <React.Fragment key={i}>
-               <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "#fff" }}>
+               <div style={{ width: "100vw", height: "100vh", display: "flex", pointerEvents: "auto", justifyContent: "center", alignItems: "center", background: "#fff" }}>
                   <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>{room.id}</h1>
                </div>
                <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
                <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <div style={{ background: "rgba(255, 255, 255, 0.9)", borderRadius: "30px", padding: "20px 100px" }}>
+                  <div style={{ background: "rgba(255, 255, 255, 0.9)", pointerEvents: "auto", borderRadius: "30px", padding: "20px 100px" }}>
                      <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>Html content here</h1>
                   </div>
                </div>
                <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center" }}></div>
             </React.Fragment>)}
-            <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "#fff", overflow: "hidden" }}>
+            <div style={{ width: "100vw", height: "100vh", display: "flex", pointerEvents: "none", justifyContent: "center", alignItems: "center", background: "#fff", overflow: "hidden" }}>
                {offset >= rooms?.length && (
                   // !playVideo ? (
                   //    <div style={{ width: "100vw", height: "100vh", pointerEvents: "none", display: "flex", justifyContent: "center", alignItems: "center", position: 'fixed', top: 0, left: 0 }}>
@@ -230,7 +233,7 @@ const CentrePage: React.FC<PageProps<Props>> = ({
                   //       </div>
                   //    </div>
                   // ) : (
-                     <h1 style={{ fontSize: "80px", lineHeight: "1", textAlign: "center", color: "#369" }}>
+                     <h1 style={{ fontSize: "80px", lineHeight: "1", pointerEvents: "auto", textAlign: "center", color: "#369" }}>
                         Video
                      </h1>
                   // )
