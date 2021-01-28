@@ -9,9 +9,7 @@ import SEO from "../components/seo"
 // import { Tween, Timeline } from "react-gsap"
 // import "../components/tec-centre.scss"
 // import { ScrollToPlugin } from "gsap/all"
-if (typeof window !== 'undefined') {
-   require("aframe")
-}
+import "aframe"
 
 type Props = {
    pageContext: {
